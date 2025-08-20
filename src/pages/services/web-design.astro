@@ -3,162 +3,100 @@ import { Image } from "astro:assets";
 import Layout from "../../layouts/Layout.astro";
 import InnerHero from "../../components/InnerHero.astro";
 import Cta from "../../components/Cta.astro";
-import ImageTextCol from "../../components/ImageTextCol.astro";
 import Solutions from "../../components/Solutions.astro";
 import Steps from "../../components/Steps.astro";
-import ComparisonTable from "../../components/ComparisonTable.astro";
 import FeatureHighlight from "../../components/FeatureHighlight.astro";
 
-// Import images
+// Images for the intro section and feature highlight
 import slowsite from "../../assets/images/slow-site.jpg";
 import fastsite from "../../assets/images/fastsite.jpg";
 import dashboard from "../../assets/images/dashboard-home.jpg";
 import features from "../../assets/images/dashboard2.jpg";
 
+// Load page content from MD frontmatter
+import { frontmatter } from "../content/services/web-design.md";
 ---
 
-<Layout
-  title="Services - LocalLeads247 | Complete Growth System for Las Vegas Home Service Businesses"
->
-  <!-- Inner Hero Component for header with dynamic content -->
+<Layout title={frontmatter.title}>
   <InnerHero
-    title="Websites That Are Lead Generation Machines,<span class='text-accent/85'>  Not Digital Brochures</span>"
-    description="Your website is your most important digital asset. We build blazing-fast, conversion-focused websites with a perfect technical SEO foundation, engineered to turn visitors into booked jobs."
-    buttonText="Get a Free Website Performance Analysis"
-    buttonLink="/contact/"
+    title={frontmatter.hero.title}
+    description={frontmatter.hero.description}
+    buttonText={frontmatter.hero.buttonText}
+    buttonLink={frontmatter.hero.buttonLink}
   />
 
-  <!-- Main Services Content -->
   <main class="services-page">
-    <!-- Introduction -->
-
+    <!-- Visual before/after section stays hard-coded (image assets), content above comes from MD -->
     <section class="py-16 xl:py-28">
-        <div class="container max-w-5xl mx-auto px-4 xl:px-0">
-             <div>
-              <h2 class="text-4xl font-medium text-dark text-center">
-                Is Your Website Actively 
-                <span class="text-primary/80">Losing You Customers?</span>
-              </h2>
-              <p class="text-gray-500 mt-6 text-center">
-                A slow, outdated, or confusing website doesn't just look bad—it drives away potential customers, hurts your <span class="text-accent">Google rankings, and wastes your ad spend.</span>
-              </p>
-             </div>
-             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 xl:gap-12 mt-8 xl:mt-16">
-                    <div class="">
-                      <Image
-                      src={slowsite}
-                      alt="Slow website performance example"
-                      width={800}
-                      height={800}
-                      class="rounded-3xl w-auto mx-auto h-full object-contain shadow-lg"
-                    />
-                    </div>
-                    <div class="">
-                      <Image
-                      src={fastsite}
-                      alt="Fast website performance example"
-                      width={800}
-                      height={800}
-                      class="rounded-3xl w-auto mx-auto h-full object-contain shadow-lg"
-                    />
-                    </div>
-             </div>
+      <div class="container max-w-5xl mx-auto px-4 xl:px-0">
+        <div>
+          <h2 class="text-4xl font-medium text-dark text-center">
+            Is Your Website Actively 
+            <span class="text-primary/80">Losing You Customers?</span>
+          </h2>
+          <p class="text-gray-500 mt-6 text-center">
+            A slow, outdated, or confusing website doesn't just look bad—it drives away potential customers, hurts your <span class="text-accent">Google rankings, and wastes your ad spend.</span>
+          </p>
         </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 xl:gap-12 mt-8 xl:mt-16">
+          <div>
+            <Image
+              src={slowsite}
+              alt="Slow website performance example"
+              width={800}
+              height={800}
+              class="rounded-3xl w-auto mx-auto h-full object-contain shadow-lg"
+            />
+          </div>
+          <div>
+            <Image
+              src={fastsite}
+              alt="Fast website performance example"
+              width={800}
+              height={800}
+              class="rounded-3xl w-auto mx-auto h-full object-contain shadow-lg"
+            />
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- Our solution -->
-    <Solutions 
-      badgeText="Web Design"
-      title="Built on a "
-      highlightedText="Foundation of Speed & Performance"
-      description="We choose the right technology for the job to ensure maximum performance and security."
-      solutions={[
-        {
-          title: "Optimized WordPress",
-          description: "The world's most popular CMS, supercharged by our team. We use custom, lightweight themes and a curated set of plugins to deliver a flexible, easy-to-manage website without the bloat or security risks of typical template sites."
-        },
-        {
-          title: "Headless CMS (Next.js)",
-          description: "For ultimate performance and security. A modern, API-first approach that delivers unparalleled speed and perfect Core Web Vitals. <span class=\"text-accent\">Ideal for businesses that want a future-proof, scalable digital asset.</span>"
-        }
-      ]}
+    <Solutions
+      badgeText={frontmatter.solutions.badgeText}
+      title={frontmatter.solutions.title}
+      highlightedText={frontmatter.solutions.highlightedText}
+      description={frontmatter.solutions.description}
+      solutions={frontmatter.solutions.solutions}
     />
 
- 
-    <!-- Website Features -->
     <Steps
-      title="More Than Just a "
-      highlightedText="Pretty Design"
-      description="Every website we build is engineered from the ground up for business growth."
+      title={frontmatter.steps.title}
+      highlightedText={frontmatter.steps.highlightedText}
+      description={frontmatter.steps.description}
       image={features}
-      steps={[
-        {
-          number: 1,
-          title:
-            "<span class='text-primary/80'>Blazing-Fast</span> Speed",
-          description:
-            "Optimized to pass Google's Core Web Vitals for a better user experience and higher rankings.",
-        },
-        {
-          number: 2,
-          title:
-            "<span class='text-primary/80'>Mobile-First</span> Design",
-          description:
-            "Looks and works perfectly on any device, where most of your customers are searching.",
-        },
-        {
-          number: 3,
-          title:
-            "<span class='text-primary/80'>Technical SEO</span> Foundation",
-          description:
-            "Built with a clean, logical structure that search engines can easily crawl and understand.",
-        },
-        {
-          number: 4,
-          title:
-            "<span class='text-primary/80'>Conversion</span> Optimized",
-          description:
-            "Clear calls-to-action, trust signals, and easy-to-use forms designed to get you leads.",
-        },
-      ]}
+      steps={frontmatter.steps.steps}
     />
 
     <FeatureHighlight
-      title="The Hub of Your "
-      titleHighlight="Growth System"
-      description="Your website isn't an island. It's the central hub that makes everything else work. It provides the foundation for our Semantic SEO, the high-converting destination for our PPC ads, and the primary lead capture point for your Business OS."
-      link={{
-        text: "Learn about our complete growth system →",
-        href: "/services/"
-      }}
-      image={dashboard} 
+      title={frontmatter.featureHighlight.title}
+      titleHighlight={frontmatter.featureHighlight.titleHighlight}
+      description={frontmatter.featureHighlight.description}
+      link={frontmatter.featureHighlight.link}
+      image={dashboard}
     />
 
-    <!-- CTA Section -->
     <Cta
-      title="Is Your Website Built for Growth?"
-      highlightedText="Spend You're Wasting"
-      description="Get a free, no-obligation analysis of your current website. We'll score its performance, identify technical issues, and show you exactly how a high-performance site can impact your bottom line."
-      buttonText="Get Your Free Website Analysis"
-      buttonLink="/contact/"
+      title={frontmatter.cta.title}
+      highlightedText={frontmatter.cta.highlightedText}
+      description={frontmatter.cta.description}
+      buttonText={frontmatter.cta.buttonText}
+      buttonLink={frontmatter.cta.buttonLink}
     />
   </main>
 </Layout>
 
 <style>
-  .pillar-card {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .pillar-card > div {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .pillar-card a {
-    margin-top: auto;
-  }
+  .pillar-card { height: 100%; display: flex; flex-direction: column; }
+  .pillar-card > div { height: 100%; display: flex; flex-direction: column; }
+  .pillar-card a { margin-top: auto; }
 </style>

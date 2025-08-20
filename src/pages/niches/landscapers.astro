@@ -1,113 +1,70 @@
 ---
-import { Image } from "astro:assets";
 import Layout from "../../layouts/Layout.astro";
 import InnerHero from "../../components/InnerHero.astro";
 import Cta from "../../components/Cta.astro";
-import ImageTextCol from "../../components/ImageTextCol.astro";
 import Services from "../../components/Services.astro";
-import Steps from "../../components/Steps.astro";
-import ComparisonTable from "../../components/ComparisonTable.astro";
 import FeatureHighlight from "../../components/FeatureHighlight.astro";
 import Frameworks from "../../components/Frameworks.astro";
-import allInOne from "../../assets/images/all-in-one.jpg";
 import Blockquote from "../../components/Blockquote.astro";
 
-// Import images
-import slowsite from "../../assets/images/slow-site.jpg";
-import fastsite from "../../assets/images/fastsite.jpg";
-import dashboard from "../../assets/images/dashboard-home.jpg";
-import features from "../../assets/images/dashboard2.jpg";
+import allInOne from "../../assets/images/all-in-one.jpg";
+
+// Load page content from MD frontmatter
+import { frontmatter } from "../content/niches/landscapers.md";
 ---
 
-<Layout
-  title="Landscaper Marketing - LocalLeads247 | High-End Landscape Design Lead Generation for Las Vegas"
->
-  <!-- Inner Hero Component for header with dynamic content -->
+<Layout title={frontmatter.title}>
   <InnerHero
-    title="From Lawn Care to Landscape<span class='text-accent/85'> Masterpieces: Get More Design & Build Leads</span>"
-    description="Stop competing on price for basic lawn maintenance. Our system attracts affluent Las Vegas homeowners looking for high-end landscape design, paver patios, and full outdoor transformations for your <span class='font-bold'>Las Vegas landscaping business.</span>"
-    buttonText="Get Your Free Landscaping Lead-Gen Plan"
-    buttonLink="/contact/"
+    title={frontmatter.hero.title}
+    description={frontmatter.hero.description}
+    buttonText={frontmatter.hero.buttonText}
+    buttonLink={frontmatter.hero.buttonLink}
   />
 
-  <!-- Main Services Content -->
   <main class="services-page">
-    <!-- Introduction -->
-
     <FeatureHighlight
-      title="Is Your Best Work Hidden Behind a "
-      titleHighlight="Low-Margin Mowing Business?"
-      description="<span class='text-2xl'>You have the vision and skill to create stunning outdoor living spaces, but your marketing only brings in calls for weekly lawn care. You're stuck in a cycle of low-profit, high-labor work, unable to land the creative, high-ticket projects that truly showcase your talent. <span class='text-accent/85'>It's time to attract the clients who value and can afford your best work.</span></span>"
+      title={frontmatter.featureHighlight.title}
+      titleHighlight={frontmatter.featureHighlight.titleHighlight}
+      description={frontmatter.featureHighlight.description}
     />
 
-    <!-- Our solution -->
     <Services
-      badgeText="LANDSCAPER"
-      title="Our Solution: The Growth System "
-      highlightedText="for Landscapers"
-      description="We apply our proven framework to the unique needs of the Las Vegas landscaping market."
-      services={[
-        {
-          title:
-            "<span class='text-accent'>Attract </span> Affluent Homeowners",
-          description:
-            "Our <span class='font-bold'>Semantic SEO</span> positions you as the authority for high-value terms like 'landscape design Summerlin,' 'outdoor kitchen builder Las Vegas,' and 'paver patio cost,' attracting clients with large projects and budgets.",
-          link: "/services/semantic-seo/",
-        },
-        {
-          title:
-            "<span class='text-accent'>Showcase </span> Your Work & Win Bids",
-          description:
-            "Our <span class='font-bold'>Business OS</span> helps you manage a stunning visual portfolio and send professional, detailed quotes for complex design/build projects, helping you stand out and win more competitive bids.",
-          link: "/services/business-os/",
-        },
-        {
-          title:
-            "<span class='text-accent'>Target </span> High-End Neighborhoods",
-          description:
-            "Our <span class='font-bold'>Meta Ad campaigns</span> are geo-targeted to affluent neighborhoods like Summerlin, The Ridges, and Southern Highlands, putting your brand and portfolio in front of homeowners most likely to invest in premium landscaping.",
-          link: "/services/ppc-management/",
-        },
-      ]}
+      badgeText={frontmatter.services.badgeText}
+      title={frontmatter.services.title}
+      highlightedText={frontmatter.services.highlightedText}
+      description={frontmatter.services.description}
+      services={frontmatter.services.services}
     />
 
     <Frameworks
-      badgeText="LANDSCAPING SERVICES"
-      title="Marketing for Your Most "
-      highlightedText="Profitable Landscaping Services"
-      description="We build custom strategies to generate leads for your highest-margin services:"
+      badgeText={frontmatter.frameworks.badgeText}
+      title={frontmatter.frameworks.title}
+      highlightedText={frontmatter.frameworks.highlightedText}
+      description={frontmatter.frameworks.description}
       image={allInOne}
-      showNiches={false}
-      contentTitle="Marketing for Your High-End Landscaping Services"
-      servicesList={[
-        "Custom Landscape Design",
-        "Hardscaping: Patios & Walkways",
-        "Outdoor Kitchens & Fire Pits",
-        "Irrigation & Drip Systems",
-        "Artificial Turf & Putting Greens",
-        "Commercial Property Maintenance",
-      ]}
+      showNiches={frontmatter.frameworks.showNiches}
+      contentTitle={frontmatter.frameworks.contentTitle}
+      servicesList={frontmatter.frameworks.servicesList}
     />
 
     <section class="bg-gray-100">
       <Blockquote
-        title="We're finally booking the "
-        titleHighlight="six-figure projects I've always wanted."
-        quote="For years, we were known as the 'mow and blow' guys. We couldn't get homeowners to see us as high-end designers. LocalLeads247 built a beautiful website that showcases our best work and a marketing strategy that gets it in front of the right people in Summerlin. Our average job size has tripled."
-        author="Michael Green"
-        company="Owner of Green Landscape Co, Las Vegas"
-        ctaText="See More Success Stories"
-        ctaLink="/case-studies/"
+        title={frontmatter.blockquote.title}
+        titleHighlight={frontmatter.blockquote.titleHighlight}
+        quote={frontmatter.blockquote.quote}
+        author={frontmatter.blockquote.author}
+        company={frontmatter.blockquote.company}
+        ctaText={frontmatter.blockquote.ctaText}
+        ctaLink={frontmatter.blockquote.ctaLink}
       />
     </section>
 
-    <!-- CTA Section -->
     <Cta
-      title="Ready to Transform Your "
-      highlightedText="Landscaping Business?"
-      description="Schedule your free, no-obligation strategy session today. We'll analyze your service area and show you the exact plan we'd use to attract more high-end landscape design and build projects in Las Vegas."
-      buttonText="Get My Free Landscaping Lead-Gen Plan"
-      buttonLink="/contact/"
+      title={frontmatter.cta.title}
+      highlightedText={frontmatter.cta.highlightedText}
+      description={frontmatter.cta.description}
+      buttonText={frontmatter.cta.buttonText}
+      buttonLink={frontmatter.cta.buttonLink}
     />
   </main>
 </Layout>
@@ -118,13 +75,11 @@ import features from "../../assets/images/dashboard2.jpg";
     display: flex;
     flex-direction: column;
   }
-
   .pillar-card > div {
     height: 100%;
     display: flex;
     flex-direction: column;
   }
-
   .pillar-card a {
     margin-top: auto;
   }

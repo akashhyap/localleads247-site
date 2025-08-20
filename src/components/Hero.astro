@@ -2,42 +2,73 @@
 // Hero Component for LocalLeads247
 import { Image } from "astro:assets";
 import dashboard from "../assets/images/dashboard-home.jpg";
+
+interface Props {
+  title?: string;
+  highlightedText?: string;
+  subtitle?: string;
+  features?: string[];
+  primaryCta?: {
+    text: string;
+    link: string;
+  };
+  secondaryCta?: {
+    text: string;
+    link: string;
+  };
+  heroImage?: any; // Allow custom image to be passed
+  imageAlt?: string;
+}
+
+const {
+  title = "Generate Exclusive Leads for Your Las Vegas",
+  highlightedText = "Home Service Business",
+  subtitle = "We build digital assets that establish you as the topical authority in your market, creating a predictable stream of high-quality, booked jobs.",
+  features = [
+    "27+ Years of Proven Experience",
+    "Powered by a Semantic SEO Framework",
+    "Based in Las Vegas, for Las Vegas"
+  ],
+  primaryCta = {
+    text: "Schedule Your Strategy Session",
+    link: "/contact"
+  },
+  secondaryCta = {
+    text: "Explore Our System",
+    link: "/services"
+  },
+  heroImage = dashboard,
+  imageAlt = "Lead generation growth funnel"
+} = Astro.props;
 ---
 
 <section class="hero-section">
   <div class="container">
     <div class="hero-content">
-      <h1>Generate Exclusive Leads  for Your Las Vegas <span class="text-accent/85">Home Service Business</span></h1>
+      <h1>{title} <span class="text-accent/85">{highlightedText}</span></h1>
       <p class="hero-subtitle">
-        We build digital assets that establish you as the topical authority in
-        your market, creating a predictable stream of high-quality, booked jobs.
+        {subtitle}
       </p>
       <div class="hero-features">
-        <div class="feature">
-          <span class="checkmark">✓</span>
-          <span>27+ Years of Proven Experience</span>
-        </div>
-        <div class="feature">
-          <span class="checkmark">✓</span>
-          <span>Powered by a Semantic SEO Framework</span>
-        </div>
-        <div class="feature">
-          <span class="checkmark">✓</span>
-          <span>Based in Las Vegas, for Las Vegas</span>
-        </div>
+        {features.map(feature => (
+          <div class="feature">
+            <span class="checkmark">✓</span>
+            <span>{feature}</span>
+          </div>
+        ))}
       </div>
 
       <div class="hero-cta">
-        <a href="#" class="btn btn-primary">Schedule Your Strategy Session</a>
-        <a href="#" class="btn btn-secondary">Explore Our System <span class="arrow">&rarr;</span></a>
+        <a href={primaryCta.link} class="btn btn-primary">{primaryCta.text}</a>
+        <a href={secondaryCta.link} class="btn btn-secondary">{secondaryCta.text} <span class="arrow">&rarr;</span></a>
       </div>
      
     </div>
     <div class="hero-image">
       <div class="image-container">
         <Image
-          src={dashboard}
-          alt="Lead generation growth funnel"
+          src={heroImage}
+          alt={imageAlt}
           width={800}
           height={800}
           class="rounded-3xl w-auto lg:max-w-9/12 mx-auto h-auto object-contain"

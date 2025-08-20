@@ -1,0 +1,295 @@
+backend:
+  name: github
+  repo: your-username/your-repo
+  branch: main
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "pages"
+    label: "Pages"
+    files:
+      # Main Pages
+      - name: "home"
+        label: "Home Page"
+        file: "src/content/home.md"
+        fields:
+          - { name: "title", label: "Page Title", widget: "string" }
+          - { name: "heroTitle", label: "Hero Title", widget: "string" }
+          - { name: "heroHighlight", label: "Hero Highlighted Text", widget: "string" }
+          - { name: "heroDescription", label: "Hero Description", widget: "markdown" }
+          - { name: "heroButtonText", label: "Hero Button Text", widget: "string" }
+          - { name: "heroButtonLink", label: "Hero Button Link", widget: "string" }
+          - name: "ctaSection"
+            label: "CTA Section"
+            widget: "object"
+            fields:
+              - { name: "title", label: "Title", widget: "string" }
+              - { name: "description", label: "Description", widget: "markdown" }
+              - { name: "buttonText", label: "Button Text", widget: "string" }
+              - { name: "buttonLink", label: "Button Link", widget: "string" }
+      
+      - name: "about"
+        label: "About Us Page"
+        file: "src/content/about-us.md"
+        fields:
+          - { name: "title", label: "Page Title", widget: "string" }
+          - name: "hero"
+            label: "Hero Section"
+            widget: "object"
+            fields:
+              - { name: "title", label: "Title", widget: "string" }
+              - { name: "highlightedText", label: "Highlighted Text", widget: "string" }
+              - { name: "description", label: "Description", widget: "markdown" }
+              - { name: "buttonText", label: "Button Text", widget: "string" }
+              - { name: "buttonLink", label: "Button Link", widget: "string" }
+          - name: "content"
+            label: "Page Content"
+            widget: "markdown"
+      
+      - name: "contact"
+        label: "Contact Page"
+        file: "src/content/contact.md"
+        fields:
+          - { name: "title", label: "Page Title", widget: "string" }
+          - name: "hero"
+            label: "Hero Section"
+            widget: "object"
+            fields:
+              - { name: "title", label: "Title", widget: "string" }
+              - { name: "highlightedText", label: "Highlighted Text", widget: "string" }
+              - { name: "description", label: "Description", widget: "markdown" }
+              - { name: "buttonText", label: "Button Text", widget: "string" }
+              - { name: "buttonLink", label: "Button Link", widget: "string" }
+      
+      - name: "case-studies"
+        label: "Case Studies Page"
+        file: "src/content/case-studies.md"
+        fields:
+          - { name: "title", label: "Page Title", widget: "string" }
+          - name: "hero"
+            label: "Hero Section"
+            widget: "object"
+            fields:
+              - { name: "title", label: "Title", widget: "string" }
+              - { name: "highlightedText", label: "Highlighted Text", widget: "string" }
+              - { name: "description", label: "Description", widget: "markdown" }
+              - { name: "buttonText", label: "Button Text", widget: "string" }
+              - { name: "buttonLink", label: "Button Link", widget: "string" }
+          - name: "testimonial"
+            label: "Testimonial Section"
+            widget: "object"
+            fields:
+              - { name: "title", label: "Title", widget: "string", required: false }
+              - { name: "titleHighlight", label: "Title Highlight", widget: "string", required: false }
+              - { name: "quote", label: "Quote", widget: "markdown" }
+              - { name: "author", label: "Author", widget: "string" }
+              - { name: "company", label: "Company", widget: "string", required: false }
+              - { name: "ctaText", label: "CTA Text", widget: "string", required: false }
+              - { name: "ctaLink", label: "CTA Link", widget: "string", required: false }
+      
+      - name: "pricing"
+        label: "Pricing Page"
+        file: "src/content/pricing.md"
+        fields:
+          - { name: "title", label: "Page Title", widget: "string" }
+          - name: "hero"
+            label: "Hero Section"
+            widget: "object"
+            fields:
+              - { name: "title", label: "Title", widget: "string" }
+              - { name: "highlightedText", label: "Highlighted Text", widget: "string" }
+              - { name: "description", label: "Description", widget: "markdown" }
+              - { name: "buttonText", label: "Button Text", widget: "string" }
+              - { name: "buttonLink", label: "Button Link", widget: "string" }
+      
+      # Service Pages
+      - name: "services-index"
+        label: "Services Index Page"
+        file: "src/content/services.md"
+        fields:
+          - { name: "title", label: "Page Title", widget: "string" }
+          - name: "hero"
+            label: "Hero Section"
+            widget: "object"
+            fields:
+              - { name: "title", label: "Title", widget: "string" }
+              - { name: "highlightedText", label: "Highlighted Text", widget: "string" }
+              - { name: "description", label: "Description", widget: "markdown" }
+              - { name: "buttonText", label: "Button Text", widget: "string" }
+              - { name: "buttonLink", label: "Button Link", widget: "string" }
+      
+      - name: "business-os"
+        label: "Business OS Page"
+        file: "src/content/services/business-os.md"
+        fields:
+          - { name: "title", label: "Page Title", widget: "string" }
+          - name: "hero"
+            label: "Hero Section"
+            widget: "object"
+            fields:
+              - { name: "title", label: "Title", widget: "string" }
+              - { name: "highlightedText", label: "Highlighted Text", widget: "string" }
+              - { name: "description", label: "Description", widget: "markdown" }
+              - { name: "buttonText", label: "Button Text", widget: "string" }
+              - { name: "buttonLink", label: "Button Link", widget: "string" }
+          - name: "solutions"
+            label: "Solutions Section"
+            widget: "object"
+            fields:
+              - { name: "badgeText", label: "Badge Text", widget: "string" }
+              - { name: "title", label: "Title", widget: "string" }
+              - { name: "highlightedText", label: "Highlighted Text", widget: "string" }
+              - { name: "description", label: "Description", widget: "markdown" }
+              - name: "solutionItems"
+                label: "Solution Items"
+                widget: "list"
+                fields:
+                  - { name: "title", label: "Title", widget: "string" }
+                  - { name: "description", label: "Description", widget: "markdown" }
+      
+      - name: "semantic-seo"
+        label: "Semantic SEO Page"
+        file: "src/content/services/semantic-seo.md"
+        fields:
+          - { name: "title", label: "Page Title", widget: "string" }
+          - name: "hero"
+            label: "Hero Section"
+            widget: "object"
+            fields:
+              - { name: "title", label: "Title", widget: "string" }
+              - { name: "highlightedText", label: "Highlighted Text", widget: "string" }
+              - { name: "description", label: "Description", widget: "markdown" }
+              - { name: "buttonText", label: "Button Text", widget: "string" }
+              - { name: "buttonLink", label: "Button Link", widget: "string" }
+          - name: "featureHighlight"
+            label: "Feature Highlight Section"
+            widget: "object"
+            fields:
+              - { name: "title", label: "Title", widget: "string" }
+              - { name: "titleHighlight", label: "Title Highlight", widget: "string" }
+              - { name: "description", label: "Description", widget: "markdown" }
+              - { name: "image", label: "Image", widget: "image" }
+              - { name: "imageAlt", label: "Image Alt Text", widget: "string" }
+              - name: "link"
+                label: "Learn More Link"
+                widget: "object"
+                required: false
+                fields:
+                  - { name: "text", label: "Link Text", widget: "string" }
+                  - { name: "href", label: "Link URL", widget: "string" }
+      
+      - name: "ppc-management"
+        label: "PPC Management Page"
+        file: "src/content/services/ppc-management.md"
+        fields:
+          - { name: "title", label: "Page Title", widget: "string" }
+          - name: "hero"
+            label: "Hero Section"
+            widget: "object"
+            fields:
+              - { name: "title", label: "Title", widget: "string" }
+              - { name: "highlightedText", label: "Highlighted Text", widget: "string" }
+              - { name: "description", label: "Description", widget: "markdown" }
+              - { name: "buttonText", label: "Button Text", widget: "string" }
+              - { name: "buttonLink", label: "Button Link", widget: "string" }
+      
+      - name: "web-design"
+        label: "Web Design Page"
+        file: "src/content/services/web-design.md"
+        fields:
+          - { name: "title", label: "Page Title", widget: "string" }
+          - name: "hero"
+            label: "Hero Section"
+            widget: "object"
+            fields:
+              - { name: "title", label: "Title", widget: "string" }
+              - { name: "highlightedText", label: "Highlighted Text", widget: "string" }
+              - { name: "description", label: "Description", widget: "markdown" }
+              - { name: "buttonText", label: "Button Text", widget: "string" }
+              - { name: "buttonLink", label: "Button Link", widget: "string" }
+      
+      # Niche Pages
+      - name: "hvac"
+        label: "HVAC Page"
+        file: "src/content/niches/hvac.md"
+        fields:
+          - { name: "title", label: "Page Title", widget: "string" }
+          - name: "hero"
+            label: "Hero Section"
+            widget: "object"
+            fields:
+              - { name: "title", label: "Title", widget: "string" }
+              - { name: "highlightedText", label: "Highlighted Text", widget: "string" }
+              - { name: "description", label: "Description", widget: "markdown" }
+              - { name: "buttonText", label: "Button Text", widget: "string" }
+              - { name: "buttonLink", label: "Button Link", widget: "string" }
+          - name: "ctaSection"
+            label: "CTA Section"
+            widget: "object"
+            fields:
+              - { name: "title", label: "Title", widget: "string" }
+              - { name: "description", label: "Description", widget: "markdown" }
+              - { name: "buttonText", label: "Button Text", widget: "string" }
+              - { name: "buttonLink", label: "Button Link", widget: "string" }
+      
+      - name: "plumber"
+        label: "Plumber Page"
+        file: "src/content/niches/plumber.md"
+        fields:
+          - { name: "title", label: "Page Title", widget: "string" }
+          - name: "hero"
+            label: "Hero Section"
+            widget: "object"
+            fields:
+              - { name: "title", label: "Title", widget: "string" }
+              - { name: "highlightedText", label: "Highlighted Text", widget: "string" }
+              - { name: "description", label: "Description", widget: "markdown" }
+              - { name: "buttonText", label: "Button Text", widget: "string" }
+              - { name: "buttonLink", label: "Button Link", widget: "string" }
+      
+      - name: "electricians"
+        label: "Electricians Page"
+        file: "src/content/niches/electricians.md"
+        fields:
+          - { name: "title", label: "Page Title", widget: "string" }
+          - name: "hero"
+            label: "Hero Section"
+            widget: "object"
+            fields:
+              - { name: "title", label: "Title", widget: "string" }
+              - { name: "highlightedText", label: "Highlighted Text", widget: "string" }
+              - { name: "description", label: "Description", widget: "markdown" }
+              - { name: "buttonText", label: "Button Text", widget: "string" }
+              - { name: "buttonLink", label: "Button Link", widget: "string" }
+      
+      - name: "landscapers"
+        label: "Landscapers Page"
+        file: "src/content/niches/landscapers.md"
+        fields:
+          - { name: "title", label: "Page Title", widget: "string" }
+          - name: "hero"
+            label: "Hero Section"
+            widget: "object"
+            fields:
+              - { name: "title", label: "Title", widget: "string" }
+              - { name: "highlightedText", label: "Highlighted Text", widget: "string" }
+              - { name: "description", label: "Description", widget: "markdown" }
+              - { name: "buttonText", label: "Button Text", widget: "string" }
+              - { name: "buttonLink", label: "Button Link", widget: "string" }
+      
+      - name: "roofers"
+        label: "Roofers Page"
+        file: "src/content/niches/roofers.md"
+        fields:
+          - { name: "title", label: "Page Title", widget: "string" }
+          - name: "hero"
+            label: "Hero Section"
+            widget: "object"
+            fields:
+              - { name: "title", label: "Title", widget: "string" }
+              - { name: "highlightedText", label: "Highlighted Text", widget: "string" }
+              - { name: "description", label: "Description", widget: "markdown" }
+              - { name: "buttonText", label: "Button Text", widget: "string" }
+              - { name: "buttonLink", label: "Button Link", widget: "string" }

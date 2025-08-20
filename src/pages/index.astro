@@ -1,17 +1,58 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Hero from '../components/Hero.astro';
-import Systems from '../components/Systems.astro';
-import Highlight from '../components/Highlight.astro';
-import Frameworks from '../components/Frameworks.astro';
-import Cta from '../components/Cta.astro';
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+import Systems from "../components/Systems.astro";
+import Highlight from "../components/Highlight.astro";
+import Frameworks from "../components/Frameworks.astro";
+import Cta from "../components/Cta.astro";
+
+// Load page content from MD frontmatter
+import { frontmatter } from "./content/Home.md";
 ---
 
-<Layout>
-	<Hero/>
-	<Systems/>
-	<Highlight/>
-	<Frameworks/>
-	<Cta/>
-</Layout>
+<Layout title={frontmatter.title}>
+  <Hero 
+    title={frontmatter.hero.title}
+    highlightedText={frontmatter.hero.highlightedText}
+    subtitle={frontmatter.hero.subtitle}
+    features={frontmatter.hero.features}
+    primaryCta={frontmatter.hero.primaryCta}
+    secondaryCta={frontmatter.hero.secondaryCta}
+  />
 
+  <Systems
+    badgeText={frontmatter.systems.badgeText}
+    title={frontmatter.systems.title}
+    highlightedText={frontmatter.systems.highlightedText}
+    description={frontmatter.systems.description}
+    mainService={frontmatter.systems.mainService}
+    cards={frontmatter.systems.cards}
+  />
+
+  <Highlight
+    title={frontmatter.highlight.title}
+    highlightedText={frontmatter.highlight.highlightedText}
+    description={frontmatter.highlight.description}
+    buttonText={frontmatter.highlight.buttonText}
+    buttonLink={frontmatter.highlight.buttonLink}
+    ctaTitle={frontmatter.highlight.ctaTitle}
+    bulletPoints={frontmatter.highlight.bulletPoints}
+  />
+
+  <Frameworks
+    badgeText={frontmatter.frameworks.badgeText}
+    title={frontmatter.frameworks.title}
+    highlightedText={frontmatter.frameworks.highlightedText}
+    description={frontmatter.frameworks.description}
+    sectionTitle={frontmatter.frameworks.sectionTitle}
+    showNiches={frontmatter.frameworks.showNiches}
+  />
+
+  <Cta
+    title={frontmatter.cta.title}
+    highlightedText={frontmatter.cta.highlightedText}
+    description={frontmatter.cta.description}
+    buttonText={frontmatter.cta.buttonText}
+    buttonLink={frontmatter.cta.buttonLink}
+  />
+</Layout>
