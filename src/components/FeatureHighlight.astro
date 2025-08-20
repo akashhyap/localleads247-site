@@ -1,0 +1,60 @@
+---
+import { Image } from "astro:assets";
+import dashboard from "../assets/images/dashboard.jpg";
+
+// Define props interface
+interface Props {
+  title?: string;
+  titleHighlight?: string;
+  description?: string;
+  image?: ImageMetadata;
+  imageAlt?: string;
+  link?: {
+    text: string;
+    href: string;
+  };
+}
+
+// Default values
+const {
+  title = "How Our SEO and Business",
+  titleHighlight = "OS Work Together",
+  description = "Our Semantic SEO service builds the engine that generates leads. The Business OS is the system that captures, nurtures, and converts them into profitable jobs, giving you a measurable ROI on your marketing investment.",
+  image = undefined,
+  imageAlt = "Lead generation growth funnel",
+  link = undefined
+} = Astro.props;
+---
+
+<section class="py-16 xl:py-28">
+  <div class="container max-w-5xl mx-auto px-4 xl:px-0 text-center">
+    <h2 class="text-3xl md:text-4xl lg:text-[2.45rem] font-semibold mb-6">
+      {title}<span class="text-primary/80">
+        {titleHighlight}</span
+      >
+    </h2>
+
+    <p class="text-gray-700 text-lg mb-8" set:html={description}>
+    </p>
+    
+    {image && (
+      <div class="relative mt-8 xl:mt-16">
+          <Image
+            src={image}
+            alt={imageAlt}
+            width={600}
+            height={600}
+            class="rounded-3xl w-auto h-auto max-w-full mx-auto object-cover aspect-auto"
+          />
+      </div>
+    )}
+
+    {link && (
+      <div class="mt-8">
+        <a href={link.href} class="text-accent hover:text-accent/80 inline-flex items-center font-medium">
+          {link.text}  
+        </a>
+      </div>
+    )}
+  </div>
+</section>

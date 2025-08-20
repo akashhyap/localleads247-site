@@ -1,0 +1,90 @@
+---
+// ComparisonTable.astro - A component to compare traditional approaches vs our solutions
+// Can be customized with different heading text and comparison points
+
+interface ComparisonItem {
+  traditional: string;
+  ours: string;
+}
+
+interface Props {
+  title?: string;
+  subtitle?: string;
+  traditionalHeading?: string;
+  ourHeading?: string;
+  comparisonItems?: ComparisonItem[];
+}
+
+// Default values
+const {
+  title = "The Difference is <span class='text-accent'>Strategy</span>, <span class='text-primary/80'>Not Tactics</span>",
+  subtitle = "",
+  traditionalHeading = "Traditional SEO Agencies",
+  ourHeading = "Our Semantic Framework",
+  comparisonItems = [
+    {
+      traditional: "Focus on a short list of keywords.",
+      ours: "Focus on owning the entire topic.",
+    },
+    {
+      traditional: "Build low-quality, unnatural links.",
+      ours: "Earn authority through comprehensive content.",
+    },
+    {
+      traditional: "Suffer from ranking volatility after updates.",
+      ours: "Build algorithmic resilience and stability.",
+    },
+    {
+      traditional: "Report on vanity metrics like \"traffic\".",
+      ours: "Report on tangible ROI like leads and sales.",
+    },
+    {
+      traditional: "Deliver a temporary, rentable result.",
+      ours: "Deliver a permanent, ownable asset.",
+    },
+  ],
+} = Astro.props;
+---
+
+<section class="py-16 xl:py-28 bg-gray-100">
+  <div class="container md:max-w-5xl px-4 xl:px-0 mx-auto">
+    <!-- Section Heading -->
+    <div class="mb-12">
+      <h2 class="text-3xl md:text-4xl lg:text-[2.45rem] text-center font-semibold" set:html={title}></h2>
+      {subtitle && <p class="text-gray-700 text-lg mt-4">{subtitle}</p>}
+    </div>
+
+    <!-- Comparison Table -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 xl:gap-12">
+      <!-- Traditional Column -->
+      <div class="rounded-xl p-8">
+        <h3 class="text-xl lg:text-2xl font-semibold mb-6 text-primary">
+          {traditionalHeading}
+        </h3>
+        <ul class="space-y-6">
+          {comparisonItems.map((item) => (
+            <li class="flex items-start">
+              <span class="text-red-500 text-xl mr-3 font-bold">✗</span>
+              <span class="text-gray-700">{item.traditional}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Our Framework Column -->
+      <div class="bg-gray-50 rounded-xl p-8 border border-primary/10">
+        <h3 class="text-xl lg:text-2xl font-semibold mb-6 text-accent">
+          {ourHeading}
+        </h3>
+        <ul class="space-y-6">
+          {comparisonItems.map((item) => (
+            <li class="flex items-start">
+              <span class="text-green-500 text-xl mr-3 font-bold">✓</span>
+              <span class="text-gray-700">{item.ours}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,122 @@
+---
+import { Image } from "astro:assets";
+import Layout from "../layouts/Layout.astro";
+import InnerHero from "../components/InnerHero.astro";
+import Cta from "../components/Cta.astro";
+import Blockquote from "../components/Blockquote.astro";
+import CaseCard from "../components/CaseCard.astro";
+
+// Import images
+import seoImage from "../assets/images/all-in-one.jpg";
+import ceoImage from "../assets/images/marc.jpg";
+// Import case study images - add actual images when available
+import plumberImage from "../assets/images/all-in-one.jpg"; // Placeholder - replace with actual plumber image
+import hvacImage from "../assets/images/all-in-one.jpg"; // Placeholder - replace with actual HVAC image
+import rooferImage from "../assets/images/all-in-one.jpg"; // Placeholder - replace with actual roofer image
+---
+
+<Layout
+  title="Services - LocalLeads247 | Complete Growth System for Las Vegas Home Service Businesses"
+>
+  <!-- Inner Hero Component for header with dynamic content -->
+  <InnerHero
+    title="Real Results for <span class='text-accent/85'>Las Vegas Home Service Businesses</span>"
+    description="Don't just take our word for it. See how our integrated growth system has delivered measurable <span class='font-bold'>ROI, increased lead flow, and built lasting digital assets</span> for businesses just like yours."
+    buttonText=""
+    buttonLink=""
+  />
+
+  <!-- Main Services Content -->
+  <main class="services-page">
+    <!-- Case Studies Section -->
+    <section class="py-16 xl:pt-28 xl:pb-0 px-6 xl:px-0 max-w-7xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">
+        Our Track <span class="text-accent">Record of Success</span>
+      </h2>
+
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 xl:gap-12"
+      >
+        <!-- Las Vegas Plumber Case Study -->
+        <CaseCard
+          category="Las Vegas Plumber"
+          title="From 15 to 80 Leads Per Month in 8 Months"
+          description="By building topical authority around 'emergency plumbing,' we made this client the top organic result, dramatically increasing high-quality, ready-to-buy leads."
+          image={plumberImage}
+          imageAlt="Client's plumbing van"
+          metrics={[
+            { value: "+433%", label: "Lead Growth" },
+            { value: "-70%", label: "Cost Per Lead" },
+          ]}
+          buttonText="Read Full Story"
+          buttonLink="#"
+        />
+
+        <!-- Henderson HVAC Case Study -->
+        <CaseCard
+          category="Henderson HVAC Contractor"
+          title="Dominating Summerlin for AC Repair & Installation"
+          description="Using a combination of programmatic SEO for location pages and targeted Google Ads, we captured the high-value Summerlin market for emergency AC repair."
+          image={hvacImage}
+          imageAlt="Client's HVAC unit installation"
+          metrics={[
+            { value: "#1", label: "Rank for 'AC Repair Summerlin'" },
+            { value: "8.5x", label: "Return on Ad Spend" },
+          ]}
+          buttonText="Read Full Story"
+          buttonLink="#"
+        />
+
+        <!-- Las Vegas Roofer Case Study -->
+        <CaseCard
+          category="Las Vegas Roofer"
+          title="Building a Predictable Pipeline for High-Ticket Roof Replacements"
+          description="We shifted focus from low-margin repairs to high-ticket replacements with an informational content strategy targeting users researching roofing materials and costs."
+          image={rooferImage}
+          imageAlt="Client's team on a roof"
+          metrics={[
+            { value: "$1.2M", label: "Pipeline Generated" },
+            { value: "45", label: "Avg. Days to Close" },
+          ]}
+          buttonText="Read Full Story"
+          buttonLink="#"
+        />
+      </div>
+    </section>
+
+    <Blockquote
+      title="LocalLeads247 didn't just get us more leads,"
+      titleHighlight="they fixed our business."
+      quote="Before, our leads were all over the place. We were disorganized and losing customers. The LocalLeads247 system put everything in one place. Their SEO strategy brings in consistent, high-quality calls, and the platform makes it easy to manage them. Our revenue is up 200% year-over-year, and for the first time, I feel like I'm in control of my business's growth."
+      author="Sarah P."
+      company="Owner of SecurityProsLasVegas, Las Vegas"
+    />
+
+    <!-- CTA Section -->
+    <Cta
+      title="Let's Build the Next Chapter of "
+      highlightedText=" Your Business Story"
+      description="We believe the best partnerships start with a simple conversation. Schedule a call today to discuss your goals, your challenges, and how our experience can help you build a dominant presence in the Las Vegas market."
+      buttonText="Schedule a Conversation"
+      buttonLink="/contact/"
+    />
+  </main>
+</Layout>
+
+<style>
+  .pillar-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .pillar-card > div {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .pillar-card a {
+    margin-top: auto;
+  }
+</style>

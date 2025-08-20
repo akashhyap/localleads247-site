@@ -1,0 +1,80 @@
+---
+import { Image } from "astro:assets";
+import marcImage from "../assets/images/marc.png";
+---
+
+<section class="bg-gray-100 pt-16 xl:pt-24">
+  <div class="container max-w-7xl px-4 xl:px-0 mx-auto">
+    <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+      <!-- Left Content Column -->
+      <div class="md:w-5/12">
+        <h2 class="text-3xl md:text-4xl lg:text-[2.45rem] font-semibold mb-6">
+          Stop Renting Traffic. <span class="text-primary/80"
+            >Start Building an Asset.</span
+          >
+        </h2>
+
+        <p class="text-gray-700 text-lg mb-8">
+          Typical agencies focus on short-term tactics that fade. We build a
+          permanent digital asset for your business. Our Semantic Authority
+          Model is designed to be resilient to algorithm updates because it <span
+            class="text-accent"
+            >aligns with Google's core mission: to reward comprehensive,
+            authoritative sources.</span
+          >
+        </p>
+        <div class="mt-8">
+          <a
+            href="/contact"
+            class="inline-block bg-primary hover:bg-transparent border border-primary text-white hover:text-primary font-medium py-3 px-8 rounded-full transition-colors duration-300"
+          >
+            More About Our Philosophy
+          </a>
+        </div>
+      </div>
+
+      <!-- Right Column with Image and Points -->
+      <div class="md:w-7/12 flex flex-col md:flex-row items-center gap-6">
+        <div class="relative w-full md:w-1/2">
+          <Image
+            src={marcImage}
+            alt="Local Leads 247 Representative"
+            width={400}
+            height={500}
+            class="rounded-lg"
+          />
+        </div>
+
+        <div class="md:w-1/2">
+          <h3 class="text-2xl font-semibold mb-4 text-gray-800">
+            Start Growing Your Business Today
+          </h3>
+
+          <ul class="space-y-4">
+            <li class="flex items-start gap-2">
+              <span class="text-[#FF6B35] text-2xl leading-none">•</span>
+              <div class="text-gray-600">
+                <span class="text-accent">27+ Years of Digital Expertise:</span>
+                We've navigated every shift in the digital landscape.
+              </div>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-[#FF6B35] text-2xl leading-none">•</span>
+              <div class="text-gray-600">
+                <span class="text-accent">Data-Driven & Transparent:</span>
+                We track ROI from first click to final invoice.
+              </div>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-[#FF6B35] text-2xl leading-none">•</span>
+              <div class="text-gray-600">
+                <span class="text-accent">Focused on Home Services:</span>
+                We understand your customers and your challenges.
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

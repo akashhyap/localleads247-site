@@ -1,0 +1,67 @@
+---
+import { Image } from "astro:assets";
+
+// Define props interface
+interface Step {
+  number: number;
+  title: string;
+  description: string;
+}
+
+interface Props {
+  title?: string;
+  highlightedText?: string;
+  description?: string;
+  image?: ImageMetadata;
+  steps: Step[];
+}
+
+// Set default props
+const {
+  title = "Our 4-Step",
+  highlightedText = " Implementation Process",
+  description = "A strategic, repeatable process for predictable growth.",
+  image,
+  steps = []
+} = Astro.props;
+---
+
+<section class="py-16 xl:py-28">
+  <div
+    class="container max-w-7xl px-4 xl:px-0 mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 xl:gap-12"
+  >
+    <!-- Sticky left section that stays in view while page scrolls -->
+    <div class="lg:col-span-6 lg:sticky lg:top-24 lg:self-start">
+      {(title || highlightedText) && (
+        <h2 class="text-3xl md:text-4xl lg:text-[2.45rem] font-semibold mb-6">
+          {title && <span class="text-accent">{title}</span>}
+          {highlightedText && <span>{highlightedText}</span>}
+        </h2>
+      )}
+      {description && <p class="text-gray-700 text-lg mb-6">{description}</p>}
+      
+      {image && (
+        <div class="mb-8 mt-4">
+          <Image 
+            src={image} 
+            alt="Illustration for section"
+            width={500}
+            height={500}
+            class="rounded-xl w-full lg:w-9/12 h-auto object-contain"
+          />
+        </div>
+      )}
+    </div>
+    <!-- Right section that naturally scrolls with the page -->
+    <div class="lg:col-span-6">
+      <div class="grid grid-cols-1 gap-8 md:gap-10">
+        {steps.map((step) => (
+          <div class="step-item pl-6 pb-6">
+            <h3 class="text-xl lg:text-2xl font-semibold mb-3" set:html={step.title} />
+            <p class="text-gray-600" set:html={step.description} />
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

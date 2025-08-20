@@ -1,0 +1,54 @@
+---
+import { Image } from 'astro:assets';
+import logoImage from '../assets/images/local-leads-247-logo.svg';
+---
+<footer class="py-16 border-t border-gray-200">
+    <div class="container max-w-7xl mx-auto px-4 sm:px-6 xl:px-0">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12 mb-12">
+            <!-- 1st column - Agency Info -->
+            <div class="lg:col-span-5">
+                <div class="mb-4">
+                    <a href="/" class="logo" aria-label="LocalLeads247 Home">
+                        <Image src={logoImage} alt="LocalLeads247 Logo" width={250} height={50} loading="eager" />
+                    </a>
+                </div>
+                <p class="text-gray-600 mb-4">Your partner in building digital authority and generating exclusive leads for home service businesses in Las Vegas.</p>
+            </div>
+
+            <!-- 2nd column - Core Services -->
+            <div class="lg:col-span-3">
+                <h3 class="font-medium text-lg text-dark mb-4">Core Services</h3>
+                <ul class="space-y-2">
+                    <li><a href="/services/semantic-seo/" class="text-gray-600 hover:text-primary transition-colors">Semantic SEO</a></li>
+                    <li><a href="/services/business-os/" class="text-gray-600 hover:text-primary transition-colors">Business OS Platform</a></li>
+                    <li><a href="/services/ppc-management/" class="text-gray-600 hover:text-primary transition-colors">PPC Management</a></li>
+                    <li><a href="/services/web-design/" class="text-gray-600 hover:text-primary transition-colors">Website Design</a></li>
+                </ul>
+            </div>
+
+            <!-- 3rd column - Company -->
+            <div class="lg:col-span-2">
+                <h3 class="font-medium text-lg text-dark mb-4">Company</h3>
+                <ul class="space-y-2">
+                    <li><a href="/about-us/" class="text-gray-600 hover:text-primary transition-colors">About Us</a></li>
+                    <li><a href="/case-studies/" class="text-gray-600 hover:text-primary transition-colors">Case Studies</a></li>
+                    <li><a href="/contact/" class="text-gray-600 hover:text-primary transition-colors">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <!-- 4th column - Legal -->
+            <div class="lg:col-span-2">
+                <h3 class="font-medium text-lg text-dark mb-4">Legal</h3>
+                <ul class="space-y-2">
+                    <li><a href="/terms-and-conditions/" class="text-gray-600 hover:text-primary transition-colors">Terms & Conditions</a></li>
+                    <li><a href="/privacy-policy/" class="text-gray-600 hover:text-primary transition-colors">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Copyright row -->
+        <div class="pt-8 border-t border-gray-200 text-center sm:text-left">
+            <p class="text-gray-500 text-sm">&copy; 2024 LocalLeads247. All Rights Reserved. | Las Vegas, NV</p>
+        </div>
+    </div>
+</footer>

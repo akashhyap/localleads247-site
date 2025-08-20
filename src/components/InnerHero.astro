@@ -1,0 +1,204 @@
+---
+// InnerHero Component for LocalLeads247
+// Used on all inner pages with dynamic content passed from each page
+
+interface Props {
+  title: string;
+  description: string;
+  buttonText: string;
+  buttonLink: string;
+}
+
+const { title, description, buttonText, buttonLink } = Astro.props;
+---
+
+<section class="hero-section">
+  <div class="container">
+    <div class="hero-content">
+      <h1 set:html={title}></h1>
+      <p class="hero-subtitle" set:html={description}></p>
+  
+      {buttonLink && buttonText && <div class="hero-cta">
+        <a href={buttonLink} class="btn btn-primary">{buttonText}</a>
+      </div>}
+     
+    </div>
+  </div>
+</section>
+
+<style>
+  @reference "../styles/global.css";
+
+  .hero-section {
+    @apply py-20 bg-gray-100;
+  }
+
+  .hero-content {
+    @apply text-center xl:max-w-6xl mx-auto px-4;
+  }
+
+  h1 {
+    font-size: 2.8rem;
+    line-height: 3rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+  }
+
+  @media (min-width: 768px) {
+    h1 {
+      font-size: 3rem;
+      line-height: 1.08;
+    }
+  }
+
+  .hero-subtitle {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    color:#565656;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+  @media (min-width:1198px) {
+    .hero-cta {
+      margin-top: 4rem;
+      margin-bottom: 4rem;
+    }
+  }
+
+  /* .hero-anchor {
+    border-bottom: 1px solid var(--color-primary);
+    padding-bottom: 2px;
+    font-weight: 500; 
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+  } */
+
+  
+  .arrow {
+    transition: transform 0.3s ease;
+    display: inline-block;
+  }
+  
+  /* .hero-anchor:hover .arrow {
+    transform: translateX(5px);
+  } */
+
+  .btn {
+    display: inline-block;
+    padding: 14px 28px;
+    border-radius: 5px;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-accent);
+    border: 1px solid var(--color-primary);
+    border-radius: 50px;
+    font-size: 20px;
+  }
+
+  .btn-primary:hover {
+    background-color: transparent;
+    color: var(--color-primary);
+  }
+
+  .btn-secondary {
+    background-color: transparent;
+    color: var(--color-primary);
+    border: 1px solid var(--color-primary);
+    border-radius: 50px;
+    font-size: 20px;
+  }
+
+  .btn-secondary:hover {
+    background-color: var(--color-primary);
+    color: var(--color-accent);
+  }
+
+  .hero-features {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 3rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .feature {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    /* border: 1px solid #b0b0b0; */
+    color: #565656;
+    padding: 8px 12px;
+    border-radius: 50px;
+    font-size: 16px;
+  }
+
+  .checkmark {
+    color: #565656;
+    font-weight: bold;
+  }
+  
+  .text-accent {
+    position: relative;
+    display: inline-block;
+  }
+
+  .hero-image {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: rgba(240, 248, 255, 0.5);
+    border-radius: 8px;
+    padding: 1rem;
+  }
+
+  .image-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 150px;
+  }
+
+  .image-caption {
+    color: #666;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+  }
+
+  @media (max-width: 768px) {
+
+    .hero-features {
+      flex-direction: column;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .feature {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+
+</style>

@@ -1,0 +1,136 @@
+---
+import { Image } from "astro:assets";
+import Layout from "../layouts/Layout.astro";
+import InnerHero from "../components/InnerHero.astro";
+import Cta from "../components/Cta.astro";
+import LeadForm from "../components/LeadForm.astro";
+
+// Import images
+import seoImage from "../assets/images/all-in-one.jpg";
+import ceoImage from "../assets/images/marc.jpg";
+---
+
+<Layout
+  title="Contact Us - LocalLeads247 | Book Your Free Strategy Session"
+>
+  <!-- Inner Hero Component for header with dynamic content -->
+  <InnerHero
+    title="Let's Build Your <span class='text-accent/85'>Growth Plan</span>"
+    description="The first step is a no-obligation strategy session. We'll learn about your business and provide actionable insights you can use, whether you choose to partner with us or not."
+    buttonText=""
+    buttonLink=""
+  />
+
+  <!-- Main Contact Content -->
+  <main class="contact-page">
+    <!-- Lead Form & What to Expect Section -->
+    <section class="lead-section py-16 xl:py-28">
+      <div class="container max-w-7xl mx-auto px-4 xl:px-0">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <!-- Left Column - Lead Form -->
+          <div class="lead-form-column">
+            <LeadForm formId="1e3V9ETIeQ7mf5c77JGC" formName="Strategy Session Request" />
+          </div>
+          
+          <!-- Right Column - What to Expect -->
+          <div class="what-to-expect-column flex flex-col justify-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">What to <span class="text-accent">Expect:</span></h2>
+            
+            <ul class="mb-8 space-y-4">
+              <li class="flex items-start">
+                <span class="text-primary text-xl mr-3">✔</span>
+                <span class="text-lg">A 100% free, <span class="text-accent">no-pressure</span> strategy session.</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-primary text-xl mr-3">✔</span>
+                <span class="text-lg">An analysis of your current <span class="text-accent">online presence.</span></span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-primary text-xl mr-3">✔</span>
+                <span class="text-lg">A clear, <span class="text-accent">actionable</span> plan for growth.</span>
+              </li>
+            </ul>
+            
+            <blockquote class="">
+              <p class="text-primary/80 max-w-11/12 italic mb-4">"The free strategy session alone was more valuable than the last 6 months with our old agency. They identified exactly where we were losing leads."</p>
+              <footer class="font-medium">- Recent Client, Las Vegas.</footer>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <Cta
+      title="Let's Build the Next Chapter of "
+      highlightedText=" Your Business Story"
+      description="We believe the best partnerships start with a simple conversation. Schedule a call today to discuss your goals, your challenges, and how our experience can help you build a dominant presence in the Las Vegas market."
+      buttonText="Schedule a Conversation"
+      buttonLink="/contact/"
+    />
+    
+    <!-- Other Ways to Reach Us Section -->
+    <section class="contact-details py-16 bg-gray-100">
+      <div class="container max-w-7xl mx-auto px-4 xl:px-0">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Other Ways to Reach Us</h2>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <!-- Left Column - Contact Information -->
+          <div class="contact-info-column">
+            <h3 class="text-2xl font-bold mb-4">Visit or Call Our Las Vegas Office</h3>
+            <p class="mb-6">We're a real local business, just like you. We're always happy to chat on the phone or have you stop by our office.</p>
+            
+            <div class="mb-4">
+              <h4 class="text-xl font-bold mb-2">Address:</h4>
+              <p>[Your Street Address], Las Vegas, NV [Zip Code]</p>
+            </div>
+            
+            <div class="mb-4">
+              <h4 class="text-xl font-bold mb-2">Phone:</h4>
+              <p>(702) 555-0123</p>
+            </div>
+            
+            <div class="mb-4">
+              <h4 class="text-xl font-bold mb-2">Hours:</h4>
+              <p>Monday - Friday, 9:00 AM - 5:00 PM</p>
+            </div>
+          </div>
+          
+          <!-- Right Column - Google Map -->
+          <div class="map-column">
+            <div class="map-container h-[400px] rounded-lg overflow-hidden shadow-lg">
+              <!-- Google Map Embed - Replace with your actual Google Maps embed code -->
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d103219.83197159498!2d-115.2663127401403!3d36.1625128952629!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80beb782a4f57dd1%3A0x3accd5e6d5b379a3!2sLas%20Vegas%2C%20NV!5e0!3m2!1sen!2sus!4v1692853698201!5m2!1sen!2sus"
+                width="100%"
+                height="100%"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+              </iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .pillar-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .pillar-card > div {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .pillar-card a {
+    margin-top: auto;
+  }
+</style>

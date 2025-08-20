@@ -1,0 +1,85 @@
+---
+import { Image } from "astro:assets";
+
+// Define props interface
+interface Props {
+  imageSrc: any; // For imported image objects
+  imageAlt: string;
+  imageWidth?: number;
+  imageHeight?: number;
+  title: string;
+  highlightedText?: string;
+  description: string;
+  accentText?: string;
+  imagePosition?: 'left' | 'right';
+}
+
+// Set default props
+const {
+  imageSrc,
+  imageAlt,
+  imageWidth = 800,
+  imageHeight = 600,
+  title,
+  highlightedText = "",
+  description,
+  accentText = "",
+  imagePosition = 'left'
+} = Astro.props;
+---
+
+<div
+class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 xl:gap-16 pt-4 py-16 xl:py-28 items-center"
+>
+  {imagePosition === 'left' ? (
+    <>
+      <div class="col-span-12 md:col-span-5">
+        <Image
+          src={imageSrc}
+          alt={imageAlt}
+          class="w-full h-auto object-contain rounded-3xl"
+          width={imageWidth}
+          height={imageHeight}
+        />
+      </div>
+
+      <div class="col-span-12 md:col-span-7">
+        <h3
+          class="text-2xl lg:text-3xl lg:leading-snug font-semibold mt-5 mb-3 text-gray-900"
+        >
+          {title}
+          {highlightedText && <span class="text-primary/80">{highlightedText}</span>}
+        </h3>
+        <p class="text-gray-600 flex-grow mb-5">
+          <span set:html={description} />
+          {accentText && <span class="text-accent" set:html={accentText} />}
+        </p>
+      </div>
+    </>
+  ) : (
+    <>
+      <div class="col-span-12 md:col-span-5">
+        <h3
+          class="text-2xl lg:text-3xl lg:leading-snug font-semibold mt-5 mb-3 text-gray-900"
+        >
+          {title}
+          {highlightedText && <span class="text-primary/80">{highlightedText}</span>}
+        </h3>
+        <p class="text-gray-600 flex-grow mb-5">
+          <span set:html={description} />
+          {accentText && <span class="text-accent" set:html={accentText} />}
+        </p>
+      </div>
+
+      <div class="col-span-12 md:col-span-7">
+        <Image
+          src={imageSrc}
+          alt={imageAlt}
+          class="w-full h-auto object-contain rounded-3xl"
+          width={imageWidth}
+          height={imageHeight}
+        />
+      </div>
+    </>
+  )}
+</div>

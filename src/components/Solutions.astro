@@ -1,0 +1,73 @@
+---
+// Define props for the Solutions component
+interface SolutionItem {
+  title: string;
+  description: string;
+}
+
+interface Props {
+  badgeText?: string;
+  title?: string;
+  highlightedText?: string;
+  description?: string;
+  solutions?: SolutionItem[];
+}
+
+// Default values
+const {
+  badgeText = "Our Solutions",
+  title = "Our Solution: The Semantic",
+  highlightedText = "Authority Framework",
+  description = "We don't try to trick Google. We build a website that aligns perfectly with its core mission: to provide the most authoritative answers. This creates **algorithmic resilience**.",
+  solutions = [
+    {
+      title: "Build Topical Authority Authority",
+      description: "We create a comprehensive <span class=\"text-accent\">Semantic Content Network</span> that covers your entire topic, from broad services to the most specific customer questions. This signals to Google that you are the definitive expert."
+    },
+    {
+      title: "Be Entity-Oriented",
+      description: "We structure your content around real-world concepts (entities) and their relationships, speaking Google's native language. This <span class=\"text-accent\">makes your site easier to understand and categorize as the best result.</span>"
+    },
+    {
+      title: "Lower the Cost of Retrieval",
+      description: "We optimize your site's technical structure and internal linking to make it incredibly efficient for Google to crawl and index. <span class=\"text-accent\">Search engines reward websites that save them resources.</span>"
+    }
+  ]
+} = Astro.props;
+---
+
+<section class="py-16 xl:py-28 bg-gray-100">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto text-center">
+        <div class="mb-4">
+          <span
+            class="inline-flex items-center px-3 py-2 rounded-full bg-primary/10 text-sm text-gray-600"
+          >
+            {badgeText}
+          </span>
+        </div>
+        <h2 class="text-4xl font-medium text-dark">
+          {title}
+          <span class="text-accent">{highlightedText}</span>
+        </h2>
+        <p class="text-gray-500 mt-6" set:html={description}>
+        </p>
+      </div>
+      {solutions.map((solution, index) => (
+        <div
+          class="grid grid-cols-12 gap-8 xl:gap-16 items-center border-b border-gray-100 py-10"
+          class:list={[{ "mt-10": index === 0 }]}
+        >
+          <div class="lg:col-span-3">
+            <h3 class="text-xl font-medium text-black">
+              {solution.title}
+            </h3>
+          </div>
+          <div class="lg:col-span-9">
+            <p class="text-gray-600 text-base" set:html={solution.description}>
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>

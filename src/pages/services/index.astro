@@ -1,0 +1,73 @@
+---
+import { Image } from 'astro:assets';
+import Layout from '../../layouts/Layout.astro';
+import InnerHero from '../../components/InnerHero.astro';
+import Cta from '../../components/Cta.astro';
+import Blockquote from '../../components/Blockquote.astro';
+
+// Import images
+import semanticSEO from '../../assets/images/semantic-seo.png';
+import leadFocused from '../../assets/images/lead-focused.png';
+import dataDriven from '../../assets/images/data-driven.png';
+import allInOneOS from '../../assets/images/all-in-one.jpg';
+import Services from '../../components/Services.astro';
+import ImageTextCol from '../../components/ImageTextCol.astro';
+---
+
+<Layout title="Services - LocalLeads247 | Complete Growth System for Las Vegas Home Service Businesses">
+  <!-- Inner Hero Component for header with dynamic content -->
+  <InnerHero 
+    title="A Complete<span class='text-accent/85'> Growth System</span>, Not Just Services"
+    description="Stop juggling disconnected tools and tactics. We integrate <strong>cutting-edge technology</strong> and a proven SEO framework into a single, unified system designed for one purpose: to dominate your Las Vegas market."
+    buttonText="See How the System Works"
+    buttonLink="/contact/"
+  />
+
+  <!-- Main Services Content -->
+  <main class="services-page">
+    <!-- The intro section content has been moved to the InnerHero component -->
+    
+    <ImageTextCol
+      imageSrc={allInOneOS}
+      imageAlt="All-in-One Operating System"
+      title="Why Traditional Marketing Fails "
+      highlightedText="Home Service Businesses"
+      description="Most agencies sell you isolated services. Your SEO team doesn't talk to your PPC team. Your website isn't connected to your CRM. This creates data silos, wasted ad spend, and lost leads. The result is a system working against itself."
+      accentText=" Our solution is a single, cohesive engine where every part works together to drive growth and maximize your ROI."
+      imagePosition="left"
+    />
+
+    <!-- Four Pillars Section -->
+    <Services />
+
+    <!-- Quote -->
+    <Blockquote/> 
+
+    <!-- CTA Section -->
+    <Cta
+      title="See What an"
+      highlightedText="Integrated System Can Do for You."
+      description="Let's build a custom growth plan for your Las Vegas business. We'll show you exactly how our system can be applied to your specific trade to generate more leads, streamline operations, and build a lasting digital asset."
+      buttonText="Book Your Free Strategy Call"
+      buttonLink="/contact/"
+    />
+  </main>
+</Layout>
+
+<style>
+  .pillar-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .pillar-card > div {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .pillar-card a {
+    margin-top: auto;
+  }
+</style>

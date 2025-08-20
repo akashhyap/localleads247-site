@@ -1,0 +1,164 @@
+---
+import { Image } from "astro:assets";
+import elitePowerImage from "../assets/images/all-in-one.jpg";
+
+interface Props {
+  badgeText?: string;
+  title?: string;
+  highlightedText?: string;
+  description?: string;
+  image?: ImageMetadata;
+  sectionTitle?: string;
+  showNiches?: boolean;
+  contentTitle?: string;
+  contentDescription?: string;
+  servicesList?: string[];
+}
+
+const {
+  badgeText = "Why Choose Us",
+  title = "Proven Lead Generation",
+  highlightedText = "Frameworks for Every Trade",
+  description = "Our semantic models are adapted to the unique customer journeys of each home service niche, from emergency calls to high-consideration projects.",
+  image = elitePowerImage,
+  sectionTitle = "Industry-Specific Solutions",
+  showNiches = true,
+  contentTitle = "",
+  contentDescription = "",
+  servicesList = [],
+} = Astro.props;
+---
+
+<section class="py-16 xl:py-28">
+  <div class="max-w-7xl mx-auto px-4 xl:px-0">
+    <div class="mb-6">
+      <span
+        class="inline-flex items-center px-3 py-2 rounded-full bg-primary/10 text-sm text-gray-600"
+      >
+        {badgeText}
+      </span>
+    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 xl:gap-12 items-center">
+      <div class="lg:col-span-8">
+        <h2 class="text-3xl md:text-4xl lg:text-[2.45rem] font-semibold mb-6">
+          {title}
+          <span class="text-accent">{highlightedText}</span>
+        </h2>
+        <p class="text-lg mb-10 mt-5 text-gray-600">
+          {description}
+        </p>
+      </div>
+
+      <!-- Image -->
+      <div class="lg:col-span-4">
+        <Image
+          src={image}
+          alt="Industry Image"
+          class="rounded-2xl h-48 w-full object-cover"
+        />
+      </div>
+    </div>
+
+    {
+      contentTitle && (
+        <div class="mt-12 mb-10">
+          <h3 class="text-2xl font-medium text-dark">{contentTitle}</h3>
+          <p class="text-lg mt-3 text-gray-600">{contentDescription}</p>
+
+          {servicesList && servicesList.length > 0 && (
+            <ul class="inline-flex flex-wrap gap-4 max-w-4xl text-base mt-6">
+              {servicesList.map((service) => (
+                <li class="flex items-center gap-2">
+                  <span class="text-accent">✔</span>
+                  <span>{service}</span>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      )
+    }
+
+    {
+      showNiches && (
+        <>
+          <h3 class="text-2xl font-medium text-dark mt-10">{sectionTitle}</h3>
+          <div class="inline-flex flex-wrap gap-2.5 max-w-4xl text-base mt-6">
+            <a
+              href="/niches/plumbers/"
+              class="inline-block text-gray-600 px-6 py-2 border border-gray-300 rounded-full hover:bg-primary/10 hover:border-primary transition-colors"
+            >
+              Plumbers
+            </a>
+            <a
+              href="/niches/hvac/"
+              class="inline-block text-gray-600 px-6 py-2 border border-gray-300 rounded-full hover:bg-primary/10 hover:border-primary transition-colors"
+            >
+              HVAC
+            </a>
+            <a
+              href="/niches/electricians/"
+              class="inline-block text-gray-600 px-6 py-2 border border-gray-300 rounded-full hover:bg-primary/10 hover:border-primary transition-colors"
+            >
+              Electricians
+            </a>
+            <a
+              href="/niches/roofers/"
+              class="inline-block text-gray-600 px-6 py-2 border border-gray-300 rounded-full hover:bg-primary/10 hover:border-primary transition-colors"
+            >
+              Roofers
+            </a>
+            <a
+              href="/niches/landscapers/"
+              class="inline-block text-gray-600 px-6 py-2 border border-gray-300 rounded-full hover:bg-primary/10 hover:border-primary transition-colors"
+            >
+              Landscapers
+            </a>
+            <a
+              href="/niches/pool-services/"
+              class="inline-block text-gray-600 px-6 py-2 border border-gray-300 rounded-full hover:bg-primary/10 hover:border-primary transition-colors"
+            >
+              Pool Services
+            </a>
+            <a
+              href="/niches/pavers-masonry/"
+              class="inline-block text-gray-600 px-6 py-2 border border-gray-300 rounded-full hover:bg-primary/10 hover:border-primary transition-colors"
+            >
+              Pavers & Masonry
+            </a>
+            <a
+              href="/niches/remodelers/"
+              class="inline-block text-gray-600 px-6 py-2 border border-gray-300 rounded-full hover:bg-primary/10 hover:border-primary transition-colors"
+            >
+              Remodelers
+            </a>
+            <a
+              href="/niches/cleaning-services/"
+              class="inline-block text-gray-600 px-6 py-2 border border-gray-300 rounded-full hover:bg-primary/10 hover:border-primary transition-colors"
+            >
+              Cleaning Services
+            </a>
+            <a
+              href="/niches/pest-control/"
+              class="inline-block text-gray-600 px-6 py-2 border border-gray-300 rounded-full hover:bg-primary/10 hover:border-primary transition-colors"
+            >
+              Pest Control
+            </a>
+            <a
+              href="/niches/general-contractors/"
+              class="inline-block text-gray-600 px-6 py-2 border border-gray-300 rounded-full hover:bg-primary/10 hover:border-primary transition-colors"
+            >
+              General Contractors
+            </a>
+            <a
+              href="/niches/garage-doors/"
+              class="inline-block text-gray-600 px-6 py-2 border border-gray-300 rounded-full hover:bg-primary/10 hover:border-primary transition-colors"
+            >
+              Garage Doors
+            </a>
+          </div>
+        </>
+      )
+    }
+  </div>
+</section>

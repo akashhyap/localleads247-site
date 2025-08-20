@@ -1,0 +1,64 @@
+  ---
+interface Props {
+  title?: string;
+  titleHighlight?: string;
+  quote: string;
+  author: string;
+  company?: string;
+  ctaText?: string;
+  ctaLink?: string;
+}
+
+// Default values
+const {
+  title = "They Didn't Just Build Us a Website,",
+  titleHighlight = "They Built Us a Business Engine.",
+  quote = "Before, we had a bunch of different tools that didn't talk to each other. It was chaos. LocalLeads247 streamlined everything onto one platform and built an SEO strategy that brings in leads consistently. For the first time, we can actually see our marketing dollars turning into booked jobs. It's been a complete game-changer for our plumbing business here in Vegas.",
+  author = "John D.",
+  company = "Owner of Las Vegas Plumbing Experts",
+  ctaText = "View More Case Studies",
+  ctaLink = "/case-studies/"
+} = Astro.props;
+---
+
+<!-- Testimonial Section -->
+<section class="py-16 xl:py-24">
+  <div class="container mx-auto px-4">
+    <div class="max-w-4xl mx-auto p-8 md:p-12">
+      <h2
+        class="text-2xl md:text-3xl lg:text-4xl font-bold mb-6 text-center"
+      >
+        "{title} <span class="text-accent">{titleHighlight}</span>"
+      </h2>
+      <blockquote class="text-xl text-gray-600 italic text-center mb-6">
+        "{quote}"
+      </blockquote>
+      <div class="flex items-center justify-center">
+        <p class="font-bold text-gray-600">
+          - {author}{company ? `, ${company}` : ""}
+        </p>
+      </div>
+      {ctaText && ctaLink && (
+        <div class="text-center mt-8 xl:mt-12">
+          <a
+            href={ctaLink}
+            class="inline-flex items-center justify-center text-accent border border-primary px-6 py-2 rounded-full font-medium hover:text-primary bg-primary hover:bg-transparent"
+          >
+            {ctaText}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-4 w-4 ml-1"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                clip-rule="evenodd"></path>
+            </svg>
+          </a>
+        </div>
+      )}
+    </div>
+  </div>
+</section>

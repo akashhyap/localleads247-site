@@ -1,0 +1,57 @@
+
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/Inter-Bold-subset.woff2') format('woff2');
+  font-weight: 700;
+  font-style: bold;
+  font-display: swap;
+}
+
+  @font-face {
+    font-family: 'Inter';
+    src: url('/fonts/Inter-SemiBold.woff2') format('woff2');
+    font-weight: 600;
+    font-style: semibold;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: 'Inter';
+    src: url('/fonts/Inter-Medium-subset.woff2') format('woff2');
+    font-weight: 500;
+    font-style: medium;
+    font-display: swap;
+  }
+
+
+  @font-face {
+    font-family: 'Inter';
+    src: url('/fonts/Inter-Regular-subset.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Montserrat';
+    src: url('/fonts/Montserrat-SemiBold-subset.woff2') format('woff2');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Montserrat';
+    src: url('/fonts/Montserrat-Medium-subset.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+
+:root {
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  --font-heading: 'Montserrat', Georgia, 'Times New Roman', serif, system-ui, -apple-system, sans-serif;
+}
+
+html {
+  font-family: var(--font-body);
+}

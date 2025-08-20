@@ -1,0 +1,131 @@
+---
+import { Image } from "astro:assets";
+import Layout from "../../layouts/Layout.astro";
+import InnerHero from "../../components/InnerHero.astro";
+import Cta from "../../components/Cta.astro";
+import ImageTextCol from "../../components/ImageTextCol.astro";
+import Services from "../../components/Services.astro";
+import Steps from "../../components/Steps.astro";
+import ComparisonTable from "../../components/ComparisonTable.astro";
+import FeatureHighlight from "../../components/FeatureHighlight.astro";
+import Frameworks from "../../components/Frameworks.astro";
+import allInOne from "../../assets/images/all-in-one.jpg";
+import Blockquote from "../../components/Blockquote.astro";
+
+// Import images
+import slowsite from "../../assets/images/slow-site.jpg";
+import fastsite from "../../assets/images/fastsite.jpg";
+import dashboard from "../../assets/images/dashboard-home.jpg";
+import features from "../../assets/images/dashboard2.jpg";
+---
+
+<Layout
+  title="Electrician Marketing - LocalLeads247 | High-Value Electrical Lead Generation for Las Vegas"
+>
+  <!-- Inner Hero Component for header with dynamic content -->
+  <InnerHero
+    title="Power Your Growth with <span class='text-accent/85'>High-Voltage Electrical Leads</span>"
+    description="Stop competing for low-margin service calls. Our system is designed to attract exclusive, high-value leads for panel upgrades, EV charger installations, and commercial projects for your <span class='font-bold'>Las Vegas electrical business.</span>"
+    buttonText="Get Your Free Electrical Lead-Gen Plan"
+    buttonLink="/contact/"
+  />
+
+  <!-- Main Services Content -->
+  <main class="services-page">
+    <!-- Introduction -->
+
+    <FeatureHighlight
+      title="Struggling to Land High-Ticket Commercial & "
+      titleHighlight="Residential Jobs?"
+      description="<span class='text-2xl'>You're an expert electrician, but your marketing brings in a flood of small, unprofitable repair calls. Meanwhile, your competitors are landing the lucrative panel upgrades, full residential rewires, and commercial contracts. <span class='text-accent/85'>It's time to build a marketing system that attracts the jobs you actually want.</span></span>"
+    />
+
+    <!-- Our solution -->
+    <Services
+      badgeText="ELECTRICIAN"
+      title="Our Solution: The Growth System "
+      highlightedText="for Electricians"
+      description="We apply our proven framework to the specific needs of the Las Vegas electrical industry."
+      services={[
+        {
+          title:
+            "<span class='text-accent'>Attract </span> High-Value Projects",
+          description:
+            "Our <span class='font-bold'>Semantic SEO</span> builds your authority for profitable keywords like 'EV charger installation Las Vegas,' 'commercial electrician,' and 'electrical panel upgrade,' putting you in front of customers with big projects.",
+          link: "/services/semantic-seo/",
+        },
+        {
+          title:
+            "<span class='text-accent'>Manage </span> Quotes & Projects",
+          description:
+            "Our <span class='font-bold'>Business OS</span> streamlines your sales process. Send detailed quotes for large projects, automate follow-ups, and manage your job pipeline from one central, easy-to-use platform.",
+          link: "/services/business-os/",
+        },
+        {
+          title:
+            "<span class='text-accent'>Get </span> Emergency Calls Now",
+          description:
+            "Our <span class='font-bold'>PPC campaigns</span> are laser-focused on capturing users searching for 'emergency electrician near me.' We drive profitable, ready-to-book service calls directly to your phone.",
+          link: "/services/ppc-management/",
+        },
+      ]}
+    />
+
+    <Frameworks
+      badgeText="ELECTRICAL SERVICES"
+      title="Marketing for Your Most "
+      highlightedText="Profitable Electrical Services"
+      description="We build custom strategies to generate leads for your highest-margin services:"
+      image={allInOne}
+      showNiches={false}
+      contentTitle="Marketing for Your High-Value Electrical Services"
+      servicesList={[
+        "Electrical Panel Upgrades",
+        "EV Charger Installation",
+        "Commercial Electrical Services",
+        "Full Residential Rewiring",
+        "Custom Lighting Installation",
+        "24/7 Emergency Repairs",
+      ]}
+    />
+
+    <section class="bg-gray-100">
+      <Blockquote
+        title="We went from small repair jobs to landing "
+        titleHighlight="major commercial contracts."
+        quote="Our business was stuck in a rut of small, low-profit residential repairs. LocalLeads247 built a strategy that positioned us as experts in commercial electrical work and EV charger installation. The quality of leads we get now is night and day. Their system has been instrumental in our growth."
+        author="John Smith"
+        company="Owner of Electric Co, North Las Vegas"
+        ctaText="See More Success Stories"
+        ctaLink="/case-studies/"
+      />
+    </section>
+
+    <!-- CTA Section -->
+    <Cta
+      title="Ready to Supercharge Your "
+      highlightedText="Electrical Business?"
+      description="Schedule your free, no-obligation strategy session today. We'll analyze your local competitors and show you the exact plan we'd use to generate a consistent flow of high-value electrical jobs in Las Vegas."
+      buttonText="Get My Free Electrical Lead-Gen Plan"
+      buttonLink="/contact/"
+    />
+  </main>
+</Layout>
+
+<style>
+  .pillar-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .pillar-card > div {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .pillar-card a {
+    margin-top: auto;
+  }
+</style>

@@ -1,0 +1,219 @@
+---
+import { Image } from "astro:assets";
+import all_in_one from "../assets/images/all-in-one.jpg";
+import semantic_seo from "../assets/images/semantic-seo.png";
+import ppc_campaigns from "../assets/images/data-driven.png";
+import web_design from "../assets/images/lead-focused.png";
+---
+
+<section class="py-16 xl:py-28">
+  <div class="container px-4 xl:px-0">
+    <!-- Title -->
+    <div class="lg:max-w-2xl mx-auto text-center">
+      <div class="mb-3">
+        <span
+          class="inline-flex items-center px-3 py-2 rounded-full bg-primary/10 text-sm text-gray-600"
+        >
+          Our Services
+        </span>
+      </div>
+      <h2 class="text-3xl md:text-4xl lg:text-[2.45rem] font-semibold text-gray-900 mb-4">
+        An Integrated System for <span class="text-primary/80"
+          >Market Dominance</span
+        >
+      </h2>
+      <p class="text-lg text-gray-600">
+        More than marketing—<span class="text-accent">we provide a complete operating system for growth.</span>
+      </p>
+    </div>
+
+    <!-- Intro -->
+
+    <div
+      class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 py-16 xl:pb-16 xl:pt-24 items-center"
+    >
+      <div>
+        <h3 class="text-2xl font-medium mt-5 mb-3 text-gray-900">
+          <span class="text-accent">All-in-One OS</span> for Lead & Job Management
+        </h3>
+        <p class="text-gray-600 flex-grow mb-5">
+          Manage leads, automate follow-ups, handle billing, and schedule jobs
+          from a single, white-labeled platform.
+        </p>
+        <div class="">
+          <a
+            href="/services/business-os/"
+            class="inline-flex items-center justify-center text-primary border border-primary px-6 py-2 rounded-full font-medium hover:text-accent hover:bg-primary"
+          >
+            Learn more
+            <svg 
+              xmlns="http://www.w3.org/2000/svg" 
+              class="h-4 w-4 ml-1" 
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path 
+                fill-rule="evenodd" 
+                d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" 
+                clip-rule="evenodd" 
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div class="flex items-center justify-center">
+        <Image
+          src={all_in_one}
+          alt="All-in-One OS"
+          class="w-full h-auto object-contain rounded-3xl"
+          width={800}
+          height={600}
+        />
+      </div>
+    </div>
+
+    <div
+      class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 xl:gap-12 py-16"
+    >
+      <!-- Card 1: SEO -->
+      <div class="flex flex-col h-full">
+        <div class="border border-gray-300 rounded-3xl p-4 overflow-hidden">
+          <div class="flex items-center justify-center">
+            <Image
+              src={semantic_seo}
+              alt="Semantic SEO"
+              class="w-full h-full object-cover"
+              width={1070}
+              height={775}
+            />
+          </div>
+        </div>
+        <div class="system_content">
+          <h3 class="text-xl font-medium mt-5 mb-3 text-gray-900 text-center">
+            Semantic SEO to Build Topical Authority
+          </h3>
+          <p class="text-gray-600 flex-grow mb-5 text-center">
+            Our core service. We build a content network that makes you the
+            undisputed expert for your services in Las Vegas.
+          </p>
+          <div class="text-center">
+            <a
+              href="/services/semantic-seo/"
+              class="inline-flex items-center justify-center text-accent font-medium hover:text-primary"
+            >
+              Learn more
+              <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                class="h-4 w-4 ml-1" 
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path 
+                  fill-rule="evenodd" 
+                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" 
+                  clip-rule="evenodd" 
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- Card 2: PPC -->
+      <div class="flex flex-col h-full">
+        <div class="border border-gray-300 rounded-3xl p-4 overflow-hidden">
+          <div class="flex items-center justify-center">
+            <Image
+              src={ppc_campaigns}
+              alt="PPC Campaigns"
+              class="w-full h-full object-cover"
+              width={1070}
+              height={775}
+            />
+          </div>
+        </div>
+        <div class="system_content">
+          <h3 class="text-xl font-medium mt-5 mb-3 text-gray-900 text-center">
+            Data-Driven Google & Meta Ad Campaigns
+          </h3>
+          <p class="text-gray-600 flex-grow mb-5 text-center">
+            Our ad campaigns are informed by SEO data, targeting high-intent
+            customers on Google & Meta with precision.
+          </p>
+          <div class="text-center">
+            <a
+              href="/services/ppc-management/"
+              class="inline-flex items-center justify-center text-accent font-medium hover:text-primary"
+            >
+              Learn more
+              <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                class="h-4 w-4 ml-1" 
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path 
+                  fill-rule="evenodd" 
+                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" 
+                  clip-rule="evenodd" 
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3: Web -->
+      <div class="flex flex-col h-full">
+        <div class="border border-gray-300 rounded-3xl p-4 overflow-hidden">
+          <div class="flex items-center justify-center">
+            <Image
+              src={web_design}
+              alt="Web Design"
+              class="w-full h-full object-cover"
+              width={1070}
+              height={775}
+            />
+          </div>
+        </div>
+        <div class="system_content">
+          <h3 class="text-xl font-medium mt-5 mb-3 text-gray-900 text-center">
+            Lead-Focused Headless & WordPress Websites
+          </h3>
+          <p class="text-gray-600 flex-grow mb-5 text-center">
+            Technically perfect websites using Headless or WordPress, designed
+            for speed, user experience, and conversion.
+          </p>
+          <div class="text-center">
+            <a
+              href="/services/web-design/"
+              class="inline-flex items-center justify-center text-accent font-medium hover:text-primary"
+            >
+              Learn more
+              <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                class="h-4 w-4 ml-1" 
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path 
+                  fill-rule="evenodd" 
+                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" 
+                  clip-rule="evenodd" 
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  @media (min-width: 1198px) {
+    .system_content {
+      width: 82%;
+      margin: auto;
+    }
+  }
+</style>

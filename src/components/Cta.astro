@@ -1,0 +1,39 @@
+---
+// Dynamic CTA Component for LocalLeads247
+// Can be used across the site with custom content passed as props or default content
+
+interface Props {
+  title?: string;
+  highlightedText?: string;
+  description?: string;
+  buttonText?: string;
+  buttonLink?: string;
+}
+
+// Default values for the homepage
+const {
+  title = "Ready to Dominate the",
+  highlightedText = "Las Vegas Market?",
+  description = "Your free strategy session is the first step. We'll analyze your online presence and provide a clear, actionable plan to make you the #1 authority in your service area. No obligation.",
+  buttonText = "Schedule Your Free Session",
+  buttonLink = "/contact",
+} = Astro.props;
+---
+
+<section class="bg-primary py-16 xl:py-24">
+  <div
+    class="max-w-7xl mx-auto grid grid-cols-12 gap-8 xl:gap-12 items-center px-4 xl:px-0"
+  >
+    <div class="col-span-12 lg:col-span-8">
+      <h2 class="text-4xl font-medium !text-white">{title} <span class="text-accent/85">{highlightedText}</span></h2>
+      <p class="text-lg mt-5 text-white">{description}</p>
+    </div>
+    <div class="col-span-12 lg:col-span-4 lg:justify-self-end">
+      <a
+        href={buttonLink}
+        class="inline-block bg-white hover:bg-transparent border border-white text-primary hover:text-white font-medium py-3 px-8 rounded-full transition-colors duration-300"
+        >{buttonText}
+      </a>
+    </div>
+  </div>
+</section>

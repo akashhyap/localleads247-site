@@ -1,0 +1,131 @@
+---
+import { Image } from "astro:assets";
+import Layout from "../../layouts/Layout.astro";
+import InnerHero from "../../components/InnerHero.astro";
+import Cta from "../../components/Cta.astro";
+import ImageTextCol from "../../components/ImageTextCol.astro";
+import Services from "../../components/Services.astro";
+import Steps from "../../components/Steps.astro";
+import ComparisonTable from "../../components/ComparisonTable.astro";
+import FeatureHighlight from "../../components/FeatureHighlight.astro";
+import Frameworks from "../../components/Frameworks.astro";
+import allInOne from "../../assets/images/all-in-one.jpg";
+import Blockquote from "../../components/Blockquote.astro";
+
+// Import images
+import slowsite from "../../assets/images/slow-site.jpg";
+import fastsite from "../../assets/images/fastsite.jpg";
+import dashboard from "../../assets/images/dashboard-home.jpg";
+import features from "../../assets/images/dashboard2.jpg";
+---
+
+<Layout
+  title="Services - LocalLeads247 | Complete Growth System for Las Vegas Home Service Businesses"
+>
+  <!-- Inner Hero Component for header with dynamic content -->
+  <InnerHero
+    title="Keep Your Techs Busy Year-Round with <span class='text-accent/85'> High-Quality HVAC Jobs</span>"
+    description="Escape the seasonal slump. Our growth system is designed to generate a consistent flow of exclusive AC repair, furnace installation, and commercial maintenance leads for your <span class='font-bold'>Las Vegas HVAC company.</span>"
+    buttonText="Get Your Free HVAC Lead-Gen Plan"
+    buttonLink="/contact/"
+  />
+
+  <!-- Main Services Content -->
+  <main class="services-page">
+    <!-- Introduction -->
+
+    <FeatureHighlight
+      title="Losing High-Value Installation "
+      titleHighlight="Jobs to Your Competitors?"
+      description="<span class='text-2xl'>The Las Vegas HVAC market is brutal. You're fighting for every AC repair call in the summer, while the winter months are a struggle. You're paying a fortune for ads on Google, but the leads are low-quality or go to five other companies.<span class='text-accent/85'>It's time for a system that builds your brand and generates leads you actually own.</span></span>"
+    />
+
+    <!-- Our solution -->
+    <Services
+      badgeText="HVAC"
+      title="Our Solution: The Growth System "
+      highlightedText="for HVAC Contractors"
+      description="We apply our proven framework to the unique needs of the Las Vegas HVAC market."
+      services={[
+        {
+          title:
+            "<span class='text-accent'>Become the </span> Go-To for AC Repair",
+          description:
+            "Our <span class='font-bold'>Semantic SEO</span> establishes your authority for critical terms like 'emergency AC repair Las Vegas' and 'furnace won't turn on,' making you the top choice for homeowners in need.",
+          link: "/services/semantic-seo/",
+        },
+        {
+          title:
+            "<span class='text-accent'>Streamline Your </span> Dispatch & Sales",
+          description:
+            "Our <span class='font-bold'>Business OS</span> captures every lead and automates follow-up for installation quotes. Manage your technicians' schedules and collect payments, all from one central platform.",
+          link: "/services/business-os/",
+        },
+        {
+          title:
+            "<span class='text-accent'>Win the </span>, Summer Rush",
+          description:
+            "Our <span class='font-bold'>PPC campaigns</span> are laser-focused on capturing high-intent searches during peak season. We target users searching for immediate help, driving profitable repair and installation calls directly to you.",
+          link: "/services/ppc-management/",
+        },
+      ]}
+    />
+
+    <Frameworks
+      badgeText="HVAC Services"
+      title="Marketing for Every Aspect of "
+      highlightedText="Your HVAC Business"
+      description="We build specific strategies to attract both residential and commercial clients for your most profitable services:"
+      image={allInOne}
+      showNiches={false}
+      contentTitle="Marketing for the Plumbing Services That Matter Most"
+      servicesList={[
+        "Emergency AC & Furnace Repair",
+        "Commercial HVAC Maintenance",
+        "Smart Thermostat Installs",
+        "New System Installations",
+        "Ductwork & Air Quality",
+        "Seasonal Tune-Ups",
+      ]}
+    />
+
+    <section class="bg-gray-100">
+      <Blockquote
+        title="We had our best summer ever, and for the first time, "
+        titleHighlight="our winter was profitable."
+        quote="The seasonality of the HVAC business in Vegas was killing us. LocalLeads247 built a strategy that not only helped us dominate for AC repair calls in the summer but also built a pipeline of furnace installation and commercial maintenance contracts that keep our guys busy all winter. Their system is a game-changer."
+        author="John D."
+        company="Owner of HVAC Co, Henderson"
+        ctaText="See More Success Stories "
+        ctaLink="/case-studies/"
+      />
+    </section>
+
+    <!-- CTA Section -->
+    <Cta
+      title="Ready to Own the "
+      highlightedText=" Las Vegas HVAC Market?"
+      description="Schedule your free, no-obligation strategy session today. We'll analyze your service area and show you the exact strategy we'd use to generate a consistent flow of high-quality HVAC jobs, 12 months a year."
+      buttonText="Get My Free HVAC Lead-Gen Plan"
+      buttonLink="/contact/"
+    />
+  </main>
+</Layout>
+
+<style>
+  .pillar-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .pillar-card > div {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .pillar-card a {
+    margin-top: auto;
+  }
+</style>
