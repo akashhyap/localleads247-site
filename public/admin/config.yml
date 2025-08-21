@@ -2,7 +2,7 @@ backend:
   name: github
   repo: akashhyap/localleads247-site
   branch: main
-  base_url: https://netlify-cms-github-oauth-provider-seven.vercel.app
+  base_url: https://netlify-cms-github-oauth-provider-z.vercel.app
 
 media_folder: "public/uploads"
 public_folder: "/uploads"
