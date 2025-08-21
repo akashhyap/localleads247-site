@@ -1,23 +1,36 @@
-name: Build & Deploy to Cloudways
+name: Deploy to Cloudways
+
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main   # change if your default branch is different
 
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
+
     steps:
+      # Checkout repo
       - uses: actions/checkout@v4
+
+      # Setup Node.js
       - uses: actions/setup-node@v4
-        with: { node-version: '20' }
+        with:
+          node-version: 20
+
+      # Install deps
       - run: npm ci
+
+      # Build Astro site
       - run: npm run build
-      - name: SFTP deploy
-        uses: wlixcc/SFTP-Deploy-Action@v1.5
+
+      # Deploy via SFTP
+      - name: SFTP Deploy
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
         with:
           server: ${{ secrets.CLOUDWAYS_HOST }}
           username: ${{ secrets.CLOUDWAYS_USER }}
-          password: ${{ secrets.CLOUDWAYS_PASS }}
+          password: ${{ secrets.CLOUDWAYS_PASS }}   # OR use ssh_private_key below
           local_path: './dist/*'
           remote_path: '/home/master/applications/5797623/public_html'
           sftpArgs: '-o ConnectTimeout=8'
