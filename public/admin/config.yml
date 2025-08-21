@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: your-username/your-repo
+  repo: akashhyap/localleads247-site
   branch: main
 
 media_folder: "public/uploads"
