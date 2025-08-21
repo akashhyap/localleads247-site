@@ -1,17 +1,21 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: akashhyap/localleads247-site
   branch: main
+  base_url: https://decap-oauth-proxy.akash-e1d.workers.dev
+  auth_endpoint: /auth
 
-# ✅ These must be TOP-LEVEL (not under `backend`)
-identity_url: https://localleads247-auth.netlify.app/.netlify/identity
-gateway_url:  https://localleads247-auth.netlify.app/.netlify/git
+site_url: https://phpstack-186938-5797623.cloudwaysapps.com/
+display_url: https://phpstack-186938-5797623.cloudwaysapps.com/
+# logo_url: /images/admin-logo.svg
 
 # ✅ Required media settings
 media_folder: "public/uploads"     # files saved in the repo
 public_folder: "/uploads"          # how the site references them
 
 # (optional) workflow mode
-# publish_mode: editorial_workflow
+publish_mode: editorial_workflow        # Optional: PR-based workflow
+local_backend: false
 
 collections:
   - name: "pages"
@@ -19,7 +23,7 @@ collections:
     files:
       - name: "home"
         label: "Home Page"
-        file: "src/content/home.md"
+        file: "src/pages/content/home.md"
         fields:
           - { name: "title", label: "Page Title", widget: "string" }
           - { name: "heroTitle", label: "Hero Title", widget: "string" }
@@ -38,7 +42,7 @@ collections:
 
       - name: "about"
         label: "About Us Page"
-        file: "src/content/about-us.md"
+        file: "src/pages/content/about-us.md"
         fields:
           - { name: "title", label: "Page Title", widget: "string" }
           - name: "hero"
@@ -54,7 +58,7 @@ collections:
 
       - name: "contact"
         label: "Contact Page"
-        file: "src/content/contact.md"
+        file: "src/pages/content/contact.md"
         fields:
           - { name: "title", label: "Page Title", widget: "string" }
           - name: "hero"
@@ -69,7 +73,7 @@ collections:
 
       - name: "case-studies"
         label: "Case Studies Page"
-        file: "src/content/case-studies.md"
+        file: "src/pages/content/case-studies.md"
         fields:
           - { name: "title", label: "Page Title", widget: "string" }
           - name: "hero"
@@ -95,7 +99,7 @@ collections:
 
       - name: "pricing"
         label: "Pricing Page"
-        file: "src/content/pricing.md"
+        file: "src/pages/content/pricing.md"
         fields:
           - { name: "title", label: "Page Title", widget: "string" }
           - name: "hero"
@@ -110,7 +114,7 @@ collections:
 
       - name: "services-index"
         label: "Services Index Page"
-        file: "src/content/services.md"
+        file: "src/pages/content/services.md"
         fields:
           - { name: "title", label: "Page Title", widget: "string" }
           - name: "hero"
@@ -140,7 +144,7 @@ collections:
 
       - name: "business-os"
         label: "Business OS Page"
-        file: "src/content/services/business-os.md"
+        file: "src/pages/content/services/business-os.md"
         fields:
           - { name: "title", label: "Page Title", widget: "string" }
           - name: "hero"
@@ -169,7 +173,7 @@ collections:
 
       - name: "semantic-seo"
         label: "Semantic SEO Page"
-        file: "src/content/services/semantic-seo.md"
+        file: "src/pages/content/services/semantic-seo.md"
         fields:
           - { name: "title", label: "Page Title", widget: "string" }
           - name: "hero"
@@ -191,7 +195,7 @@ collections:
 
       - name: "ppc-management"
         label: "PPC Management Page"
-        file: "src/content/services/ppc-management.md"
+        file: "src/pages/content/services/ppc-management.md"
         fields:
           - { name: "title", label: "Page Title", widget: "string" }
           - name: "hero"
@@ -206,7 +210,7 @@ collections:
 
       - name: "web-design"
         label: "Web Design Page"
-        file: "src/content/services/web-design.md"
+        file: "src/pages/content/services/web-design.md"
         fields:
           - { name: "title", label: "Page Title", widget: "string" }
           - name: "hero"
@@ -221,7 +225,7 @@ collections:
 
       - name: "hvac"
         label: "HVAC Page"
-        file: "src/content/niches/hvac.md"
+        file: "src/pages/content/niches/hvac.md"
         fields:
           - { name: "title", label: "Page Title", widget: "string" }
           - name: "hero"
@@ -244,7 +248,7 @@ collections:
 
       - name: "plumber"
         label: "Plumber Page"
-        file: "src/content/niches/plumber.md"
+        file: "src/pages/content/niches/plumber.md"
         fields:
           - { name: "title", label: "Page Title", widget: "string" }
           - name: "hero"
@@ -259,7 +263,7 @@ collections:
 
       - name: "electricians"
         label: "Electricians Page"
-        file: "src/content/niches/electricians.md"
+        file: "src/pages/content/niches/electricians.md"
         fields:
           - { name: "title", label: "Page Title", widget: "string" }
           - name: "hero"
@@ -274,7 +278,7 @@ collections:
 
       - name: "landscapers"
         label: "Landscapers Page"
-        file: "src/content/niches/landscapers.md"
+        file: "src/pages/content/niches/landscapers.md"
         fields:
           - { name: "title", label: "Page Title", widget: "string" }
           - name: "hero"
@@ -289,7 +293,7 @@ collections:
 
       - name: "roofers"
         label: "Roofers Page"
-        file: "src/content/niches/roofers.md"
+        file: "src/pages/content/niches/roofers.md"
         fields:
           - { name: "title", label: "Page Title", widget: "string" }
           - name: "hero"
