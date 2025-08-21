@@ -1,15 +1,22 @@
 backend:
   name: git-gateway
   branch: main
-  identity_url: https://localleads247-auth.netlify.app/.netlify/identity
-  gateway_url: https://localleads247-auth.netlify.app/.netlify/git
 
+# ✅ These must be TOP-LEVEL (not under `backend`)
+identity_url: https://localleads247-auth.netlify.app/.netlify/identity
+gateway_url:  https://localleads247-auth.netlify.app/.netlify/git
+
+# ✅ Required media settings
+media_folder: "public/uploads"     # files saved in the repo
+public_folder: "/uploads"          # how the site references them
+
+# (optional) workflow mode
+# publish_mode: editorial_workflow
 
 collections:
   - name: "pages"
     label: "Pages"
     files:
-      # Main Pages
       - name: "home"
         label: "Home Page"
         file: "src/content/home.md"
@@ -28,7 +35,7 @@ collections:
               - { name: "description", label: "Description", widget: "markdown" }
               - { name: "buttonText", label: "Button Text", widget: "string" }
               - { name: "buttonLink", label: "Button Link", widget: "string" }
-      
+
       - name: "about"
         label: "About Us Page"
         file: "src/content/about-us.md"
@@ -43,10 +50,8 @@ collections:
               - { name: "description", label: "Description", widget: "markdown" }
               - { name: "buttonText", label: "Button Text", widget: "string" }
               - { name: "buttonLink", label: "Button Link", widget: "string" }
-          - name: "content"
-            label: "Page Content"
-            widget: "markdown"
-      
+          - { name: "content", label: "Page Content", widget: "markdown" }
+
       - name: "contact"
         label: "Contact Page"
         file: "src/content/contact.md"
@@ -61,7 +66,7 @@ collections:
               - { name: "description", label: "Description", widget: "markdown" }
               - { name: "buttonText", label: "Button Text", widget: "string" }
               - { name: "buttonLink", label: "Button Link", widget: "string" }
-      
+
       - name: "case-studies"
         label: "Case Studies Page"
         file: "src/content/case-studies.md"
@@ -87,7 +92,7 @@ collections:
               - { name: "company", label: "Company", widget: "string", required: false }
               - { name: "ctaText", label: "CTA Text", widget: "string", required: false }
               - { name: "ctaLink", label: "CTA Link", widget: "string", required: false }
-      
+
       - name: "pricing"
         label: "Pricing Page"
         file: "src/content/pricing.md"
@@ -102,8 +107,7 @@ collections:
               - { name: "description", label: "Description", widget: "markdown" }
               - { name: "buttonText", label: "Button Text", widget: "string" }
               - { name: "buttonLink", label: "Button Link", widget: "string" }
-      
-      # Service Pages
+
       - name: "services-index"
         label: "Services Index Page"
         file: "src/content/services.md"
@@ -118,7 +122,7 @@ collections:
               - { name: "description", label: "Description", widget: "markdown" }
               - { name: "buttonText", label: "Button Text", widget: "string" }
               - { name: "buttonLink", label: "Button Link", widget: "string" }
-      
+
       - name: "services-home"
         label: "Services Home Page"
         file: "src/pages/content/services/home.md"
@@ -133,7 +137,7 @@ collections:
               - { name: "description", label: "Description", widget: "markdown" }
               - { name: "buttonText", label: "Button Text", widget: "string" }
               - { name: "buttonLink", label: "Button Link", widget: "string" }
-      
+
       - name: "business-os"
         label: "Business OS Page"
         file: "src/content/services/business-os.md"
@@ -162,7 +166,7 @@ collections:
                 fields:
                   - { name: "title", label: "Title", widget: "string" }
                   - { name: "description", label: "Description", widget: "markdown" }
-      
+
       - name: "semantic-seo"
         label: "Semantic SEO Page"
         file: "src/content/services/semantic-seo.md"
@@ -173,16 +177,7 @@ collections:
             widget: "object"
             fields:
               - { name: "title", label: "Title", widget: "string" }
-              - { name: "highlightedText", label: "Highlighted Text", widget: "string" }
-              - { name: "description", label: "Description", widget: "markdown" }
-              - { name: "buttonText", label: "Button Text", widget: "string" }
-              - { name: "buttonLink", label: "Button Link", widget: "string" }
-          - name: "featureHighlight"
-            label: "Feature Highlight Section"
-            widget: "object"
-            fields:
-              - { name: "title", label: "Title", widget: "string" }
-              - { name: "titleHighlight", label: "Title Highlight", widget: "string" }
+              - { name: "highlightedText", label: "Title Highlight", widget: "string" }
               - { name: "description", label: "Description", widget: "markdown" }
               - { name: "image", label: "Image", widget: "image" }
               - { name: "imageAlt", label: "Image Alt Text", widget: "string" }
@@ -193,7 +188,7 @@ collections:
                 fields:
                   - { name: "text", label: "Link Text", widget: "string" }
                   - { name: "href", label: "Link URL", widget: "string" }
-      
+
       - name: "ppc-management"
         label: "PPC Management Page"
         file: "src/content/services/ppc-management.md"
@@ -208,7 +203,7 @@ collections:
               - { name: "description", label: "Description", widget: "markdown" }
               - { name: "buttonText", label: "Button Text", widget: "string" }
               - { name: "buttonLink", label: "Button Link", widget: "string" }
-      
+
       - name: "web-design"
         label: "Web Design Page"
         file: "src/content/services/web-design.md"
@@ -223,8 +218,7 @@ collections:
               - { name: "description", label: "Description", widget: "markdown" }
               - { name: "buttonText", label: "Button Text", widget: "string" }
               - { name: "buttonLink", label: "Button Link", widget: "string" }
-      
-      # Niche Pages
+
       - name: "hvac"
         label: "HVAC Page"
         file: "src/content/niches/hvac.md"
@@ -247,7 +241,7 @@ collections:
               - { name: "description", label: "Description", widget: "markdown" }
               - { name: "buttonText", label: "Button Text", widget: "string" }
               - { name: "buttonLink", label: "Button Link", widget: "string" }
-      
+
       - name: "plumber"
         label: "Plumber Page"
         file: "src/content/niches/plumber.md"
@@ -262,7 +256,7 @@ collections:
               - { name: "description", label: "Description", widget: "markdown" }
               - { name: "buttonText", label: "Button Text", widget: "string" }
               - { name: "buttonLink", label: "Button Link", widget: "string" }
-      
+
       - name: "electricians"
         label: "Electricians Page"
         file: "src/content/niches/electricians.md"
@@ -277,7 +271,7 @@ collections:
               - { name: "description", label: "Description", widget: "markdown" }
               - { name: "buttonText", label: "Button Text", widget: "string" }
               - { name: "buttonLink", label: "Button Link", widget: "string" }
-      
+
       - name: "landscapers"
         label: "Landscapers Page"
         file: "src/content/niches/landscapers.md"
@@ -292,7 +286,7 @@ collections:
               - { name: "description", label: "Description", widget: "markdown" }
               - { name: "buttonText", label: "Button Text", widget: "string" }
               - { name: "buttonLink", label: "Button Link", widget: "string" }
-      
+
       - name: "roofers"
         label: "Roofers Page"
         file: "src/content/niches/roofers.md"
