@@ -120,6 +120,21 @@ collections:
               - { name: "buttonText", label: "Button Text", widget: "string" }
               - { name: "buttonLink", label: "Button Link", widget: "string" }
       
+      - name: "services-home"
+        label: "Services Home Page"
+        file: "src/pages/content/services/home.md"
+        fields:
+          - { name: "title", label: "Page Title", widget: "string" }
+          - name: "hero"
+            label: "Hero Section"
+            widget: "object"
+            fields:
+              - { name: "title", label: "Title", widget: "string" }
+              - { name: "highlightedText", label: "Highlighted Text", widget: "string" }
+              - { name: "description", label: "Description", widget: "markdown" }
+              - { name: "buttonText", label: "Button Text", widget: "string" }
+              - { name: "buttonLink", label: "Button Link", widget: "string" }
+      
       - name: "business-os"
         label: "Business OS Page"
         file: "src/content/services/business-os.md"
