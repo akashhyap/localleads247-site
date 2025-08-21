@@ -18,6 +18,14 @@ const { title = "Localleads247" } = Astro.props;
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+		
+		<!-- Preload fonts for better performance -->
+		<link rel="preload" href="/fonts/Inter-Bold-subset.woff2" as="font" type="font/woff2" crossorigin />
+		<link rel="preload" href="/fonts/Inter-SemiBold.woff2" as="font" type="font/woff2" crossorigin />
+		<link rel="preload" href="/fonts/Inter-Medium-subset.woff2" as="font" type="font/woff2" crossorigin />
+		<link rel="preload" href="/fonts/Inter-Regular-subset.woff2" as="font" type="font/woff2" crossorigin />
+		<link rel="preload" href="/fonts/Montserrat-SemiBold-subset.woff2" as="font" type="font/woff2" crossorigin />
+		<link rel="preload" href="/fonts/Montserrat-Medium-subset.ttf" as="font" type="font/ttf" crossorigin />
 	</head>
 	<body>
 		<Header />
