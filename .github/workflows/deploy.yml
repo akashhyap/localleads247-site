@@ -2,8 +2,11 @@ name: Deploy to Cloudways
 
 on:
   push:
-    branches:
-      - main   # change if your default branch is different
+    branches: [ main ]   # change if your default branch is not 'main'
+
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build-deploy:
@@ -17,20 +20,26 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: 'npm'
 
-      # Install deps
+      # Install dependencies
       - run: npm ci
 
       # Build Astro site
       - run: npm run build
 
-      # Deploy via SFTP
-      - name: SFTP Deploy
-        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+      # Deploy via SFTP (pure SFTP, no shell required)
+      - name: Upload dist/ to Cloudways via SFTP
+        uses: SamKirkland/FTP-Deploy-Action@v4
         with:
-          server: ${{ secrets.CLOUDWAYS_HOST }}
-          username: ${{ secrets.CLOUDWAYS_USER }}
-          password: ${{ secrets.CLOUDWAYS_PASS }}   # OR use ssh_private_key below
-          local_path: './dist/*'
-          remote_path: '/home/master/applications/5797623/public_html'
-          sftpArgs: '-o ConnectTimeout=8'
+          server: ${{ secrets.CLOUDWAYS_HOST }}       # e.g. your Cloudways public IP
+          username: ${{ secrets.CLOUDWAYS_USER }}     # Application username
+          password: ${{ secrets.CLOUDWAYS_PASS }}     # Application password
+          protocol: sftp
+          port: 22
+          local-dir: dist/
+          server-dir: public_html/                   # relative path works fine
+          dangerous-clean-slate: false               # don’t wipe files not in dist
+          exclude: |
+            **/.git*
+            **/.DS_Store
