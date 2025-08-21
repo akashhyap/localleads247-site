@@ -1,12 +1,9 @@
 backend:
-  name: github
-  repo: akashhyap/localleads247-site
+  name: git-gateway
   branch: main
-  base_url: https://netlify-cms-github-oauth-provider-z.vercel.app
-  auth_endpoint: /auth
+  identity_url: https://localleads247-auth.netlify.app/.netlify/identity
+  gateway_url: https://localleads247-auth.netlify.app/.netlify/git
 
-media_folder: "public/uploads"
-public_folder: "/uploads"
 
 collections:
   - name: "pages"
