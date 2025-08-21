@@ -2,8 +2,8 @@ backend:
   name: github
   repo: akashhyap/localleads247-site
   branch: main
-  base_url: https://decap-oauth-proxy.akash-e1d.workers.dev
-  auth_endpoint: /auth
+  base_url: https://phpstack-186938-5797623.cloudwaysapps.com/oauth
+  auth_endpoint: /auth.php
 
 site_url: https://phpstack-186938-5797623.cloudwaysapps.com/
 display_url: https://phpstack-186938-5797623.cloudwaysapps.com/
