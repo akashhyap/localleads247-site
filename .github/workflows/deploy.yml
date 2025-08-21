@@ -1,0 +1,23 @@
+name: Build & Deploy to Cloudways
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '20' }
+      - run: npm ci
+      - run: npm run build
+      - name: SFTP deploy
+        uses: wlixcc/SFTP-Deploy-Action@v1.5
+        with:
+          server: ${{ secrets.CLOUDWAYS_HOST }}
+          username: ${{ secrets.CLOUDWAYS_USER }}
+          password: ${{ secrets.CLOUDWAYS_PASS }}
+          local_path: './dist/*'
+          remote_path: '/home/master/applications/5797623/public_html'
+          sftpArgs: '-o ConnectTimeout=8'
