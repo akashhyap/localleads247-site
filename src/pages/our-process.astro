@@ -1,0 +1,75 @@
+---
+import { Image } from "astro:assets";
+import Layout from "../layouts/Layout.astro";
+import InnerHero from "../components/InnerHero.astro";
+import Cta from "../components/Cta.astro";
+import Solutions from "../components/Solutions.astro";
+import Steps from "../components/Steps.astro";
+import ThreeColumnLayout from "../components/ThreeColumnLayout.astro";
+
+// Import images
+import seoImage from "../assets/images/all-in-one.jpg";
+
+// Import page content from MD file
+import _, { frontmatter } from "../pages/content/our-process.md";
+---
+
+<Layout title={frontmatter.title}>
+  <!-- Inner Hero Component for header with dynamic content -->
+  <InnerHero
+    title={frontmatter.hero.title}
+    description={frontmatter.hero.description}
+    buttonText={frontmatter.hero.buttonText}
+    buttonLink={frontmatter.hero.buttonLink}
+  />
+
+  <!-- Main Services Content -->
+  <main class="services-page">
+    
+    <!-- Our Partnership Guarantees -->
+    <ThreeColumnLayout
+    title={frontmatter.steps.title}
+    highlightedText={frontmatter.steps.highlightedText}
+    description={frontmatter.steps.description}
+    image={seoImage}
+    imageAlt="Partnership Guarantees"
+    steps={frontmatter.steps.steps}
+    />
+
+    <!-- Four Pillars Section -->
+    <Solutions
+      badgeText={frontmatter.solutions.badgeText}
+      title={frontmatter.solutions.title}
+      highlightedText={frontmatter.solutions.highlightedText}
+      description={frontmatter.solutions.description}
+      solutions={frontmatter.solutions.solutions}
+    />    
+
+    <!-- CTA Section -->
+    <Cta
+      title={frontmatter.cta.title}
+      highlightedText={frontmatter.cta.highlightedText}
+      description={frontmatter.cta.description}
+      buttonText={frontmatter.cta.buttonText}
+      buttonLink={frontmatter.cta.buttonLink}
+    />
+  </main>
+</Layout>
+
+<style>
+  .pillar-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .pillar-card > div {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .pillar-card a {
+    margin-top: auto;
+  }
+</style>

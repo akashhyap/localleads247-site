@@ -248,7 +248,7 @@ collections:
 
       - name: "plumber"
         label: "Plumber Page"
-        file: "src/pages/content/niches/plumber.md"
+        file: "src/pages/content/niches/plumbers.md"
         fields:
           - { name: "title", label: "Page Title", widget: "string" }
           - name: "hero"

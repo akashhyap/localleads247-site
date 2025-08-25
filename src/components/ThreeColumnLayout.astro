@@ -1,0 +1,71 @@
+---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+
+interface Props {
+  title?: string;
+  highlightedText?: string;
+  description?: string;
+  image: ImageMetadata;
+  imageAlt?: string;
+  steps?: {
+    number: number;
+    title: string;
+    description: string;
+  }[];
+}
+
+const {
+  title = "Main Title",
+  highlightedText = "Highlighted",
+  description = "Default description text",
+  image,
+  imageAlt = "Featured image",
+  steps = []
+} = Astro.props;
+---
+
+<section class="py-16 xl:py-24 bg-white">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-12 gap-8 xl:gap-10">
+      <!-- Left Column - Title and Description -->
+      <div class="col-span-12 lg:col-span-4">
+        <h2 class="text-3xl xl:text-4xl font-medium text-dark">
+          {title}
+          <span class="text-accent">{highlightedText}</span>
+        </h2>
+        <p class="text-gray-500 mt-6" set:html={description}>
+        </p>
+      </div>
+      
+      <!-- Middle Column - Image -->
+      <div class="col-span-12 lg:col-span-3 flex items-center justify-center">
+        <Image 
+          src={image} 
+          alt={imageAlt}
+          class="rounded-2xl h-full object-cover" 
+          width={500}
+        />
+      </div>
+      
+      <!-- Right Column - Content -->
+      <div class="col-span-12 lg:col-span-5">
+        {steps.map((step) => (
+          <div class="mb-8 last:mb-0">
+            <div class="flex items-start">
+              <div class="flex-shrink-0 mr-4">
+                <span class="inline-flex items-center justify-center h-8 w-8 rounded-full bg-primary text-white font-medium">
+                  {step.number}
+                </span>
+              </div>
+              <div>
+                <h3 class="text-xl font-medium text-dark" set:html={step.title}></h3>
+                <p class="mt-2 text-gray-600" set:html={step.description}></p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
