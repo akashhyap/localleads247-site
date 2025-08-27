@@ -1,0 +1,165 @@
+---
+// ResourceHero Component for LocalLeads247
+// Specialized hero component for resource pages that includes back link and author information
+
+interface Props {
+  title: string;
+  description: string;
+  buttonText?: string;
+  buttonLink?: string;
+  author?: string;
+  authorTitle?: string;
+  publishedDate?: string;
+  updatedDate?: string;
+}
+
+const {
+  title,
+  description,
+  buttonText,
+  buttonLink,
+  author,
+  authorTitle,
+  publishedDate,
+  updatedDate
+} = Astro.props;
+---
+
+<section class="hero-section">
+  <div class="container">
+    <div class="hero-content">
+      <div class="back-link">
+        <a href="/resources">← Back to Resources</a>
+      </div>
+      <h1 set:html={title}></h1>
+      <p class="hero-subtitle" set:html={description}></p>
+  
+      {buttonLink && buttonText && <div class="hero-cta">
+        <a href={buttonLink} class="btn btn-primary">{buttonText}</a>
+      </div>}
+      
+      {(author || publishedDate) && (
+        <div class="author-info">
+          {author && <span class="author">By {author}{authorTitle && `, ${authorTitle}`}</span>}
+          {publishedDate && (
+            <span class="publish-info">
+              <span class="separator">|</span> Published on: {publishedDate}
+              {updatedDate && updatedDate !== publishedDate && (
+                <span><span class="separator">|</span> Last Updated: {updatedDate}</span>
+              )}
+            </span>
+          )}
+        </div>
+      )}
+    </div>
+  </div>
+</section>
+
+<style>
+  @reference "../styles/global.css";
+
+  .hero-section {
+    @apply py-20 bg-gray-100;
+  }
+
+  .back-link {
+    padding-bottom: 1.5rem;
+  }
+
+  .back-link a {
+    color: var(--color-primary);
+    font-weight: 500;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    transition: color 0.3s ease;
+  }
+
+  .back-link a:hover {
+    text-decoration: underline;
+  }
+
+  .hero-content {
+    @apply px-4 xl:max-w-7xl mx-auto;
+  }
+
+  h1 {
+    font-size: 2.8rem;
+    line-height: 3rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+  }
+
+  @media (min-width: 768px) {
+    h1 {
+      font-size: 3rem;
+      line-height: 1.08;
+    }
+  }
+
+  .hero-subtitle {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+    color:#565656;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .author-info {
+    margin-top: 2rem;
+    color: #565656;
+    font-size: 1rem;
+  }
+
+  .author {
+    font-weight: 500;
+  }
+
+  .separator {
+    margin: 0 0.5rem;
+  }
+
+  .publish-info {
+    font-weight: 400;
+  }
+
+  @media (min-width:1198px) {
+    .hero-cta {
+      margin-top: 4rem;
+      margin-bottom: 4rem;
+    }
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 14px 28px;
+    border-radius: 5px;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-accent);
+    border: 1px solid var(--color-primary);
+    border-radius: 50px;
+    font-size: 20px;
+  }
+
+  .btn-primary:hover {
+    background-color: transparent;
+    color: var(--color-primary);
+  }
+</style>

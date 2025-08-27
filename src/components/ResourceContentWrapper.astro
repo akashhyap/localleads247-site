@@ -1,0 +1,113 @@
+---
+// ResourceContentWrapper Component
+// A two-column layout component for resource pages with a sticky index on the right side
+import ContentSection from './ContentSection.astro';
+
+interface Props {
+  headings: {
+    id: string;
+    text: string;
+    level: number;
+  }[];
+  sectionTitle?: string;
+  sectionDescription?: string;
+}
+
+const { headings, sectionTitle, sectionDescription } = Astro.props;
+
+const sectionData = {
+  title: sectionTitle,
+  description: sectionDescription
+};
+---
+
+<div class="py-8 md:py-16">
+  <div class="container mx-auto px-4 py-8">
+  <div class="max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+      <!-- Main content area -->
+      <div class="lg:col-span-8">
+        <div class="pb-16">
+          <div class="px-4 max-w-5xl mx-auto">
+            {/* Page intro section */}
+            {sectionTitle && (
+              <h1 class="text-4xl md:text-5xl font-semibold leading-tight mb-5">{sectionTitle}</h1>
+            )}
+            {sectionDescription && (
+              <div class="text-lg text-gray-600 leading-relaxed mb-10">{sectionDescription}</div>
+            )}
+            
+            {/* Content sections via slot */}
+            <slot />
+          </div>
+        </div>
+      </div>
+      
+      <!-- Sidebar with sticky table of contents -->
+      <div class="lg:col-span-4 hidden lg:block">
+        <div class="sticky top-[115px]"> <!-- 95px header + padding -->
+          <div class="bg-white p-5 rounded-lg shadow-md">
+            <h3 class="text-lg font-semibold text-primary mb-4">Table of Contents</h3>
+            <ul class="space-y-2">
+              {headings.map((heading) => (
+                <li class={`relative ${heading.level > 2 ? `ml-${(heading.level - 2) * 3}` : ''} pl-5 before:content-['•'] before:absolute before:left-0 before:text-accent before:text-lg before:leading-none before:top-1/2 before:-translate-y-1/2`}>
+                  <a 
+                    href={`#${heading.id}`}
+                    class="text-gray-700 hover:text-accent transition-colors duration-200 toc-link"
+                    data-heading-id={heading.id}
+                  >
+                    {heading.text}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Highlight active section in the table of contents
+  document.addEventListener('DOMContentLoaded', () => {
+    // Set scroll behavior for smooth scrolling
+    document.documentElement.style.scrollBehavior = 'smooth';
+    document.documentElement.style.scrollPaddingTop = '115px';
+    
+    const observerOptions = {
+      rootMargin: '-115px 0px -80% 0px',
+      threshold: 0
+    };
+    
+    const headings = document.querySelectorAll('h2, h3, h4, h5, h6');
+    const indexLinks = document.querySelectorAll('.toc-link');
+    
+    if (headings.length && indexLinks.length) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute('id');
+            indexLinks.forEach(link => {
+              const headingId = link.getAttribute('data-heading-id');
+              if (headingId === id) {
+                // Add Tailwind classes for active state
+                link.classList.add('font-semibold', 'text-accent');
+              } else {
+                // Remove Tailwind classes for active state
+                link.classList.remove('font-semibold', 'text-accent');
+              }
+            });
+          }
+        });
+      }, observerOptions);
+      
+      // Observe all headings
+      headings.forEach(heading => {
+        if (heading.id) {
+          observer.observe(heading);
+        }
+      });
+    }
+  });
+</script>

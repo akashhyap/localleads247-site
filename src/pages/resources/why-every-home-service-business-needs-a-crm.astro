@@ -1,0 +1,106 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import ResourceHero from "../../components/ResourceHero.astro";
+import ResourceContentWrapper from "../../components/ResourceContentWrapper.astro";
+import ContentSection from "../../components/ContentSection.astro";
+import AuthorBio from "../../components/AuthorBio.astro";
+import marcImage from '../../assets/images/marc.jpg';
+import crmImage from '../../assets/images/all-in-one.jpg'; // Placeholder image - replace with actual CRM image if available
+
+// Import page content data from structured markdown frontmatter
+import { frontmatter } from "../content/resources/why-every-home-service-business-needs-a-crm.md";
+
+// Extract sections from frontmatter
+const { 
+  intro, 
+  crmBasics, 
+  crmTransformation,
+  solution,
+  authorBio
+} = frontmatter;
+
+// Define headings for table of contents - these match the section IDs in our content
+const headings = [
+  { id: "the-chaos-of-no-system", text: "The Chaos of 'No System': Does This Sound Familiar?", level: 2 },
+  { id: "what-exactly-is-a-crm", text: "What Exactly is a CRM for Home Services?", level: 2 },
+  { id: "5-ways-a-crm-transforms", text: "5 Ways a CRM Transforms Your Home Service Business", level: 2 },
+  { id: "localleads247-solution", text: "The LocalLeads247 Solution: A CRM Built for Contractors", level: 2 },
+  { id: "about-the-author", text: "About the Author", level: 2 }
+];
+---
+
+<Layout title={frontmatter.title}>
+  <ResourceHero
+    title={frontmatter.hero.title}
+    description={frontmatter.hero.description}
+    buttonText={frontmatter.hero.buttonText}
+    buttonLink={frontmatter.hero.buttonLink}
+    author={frontmatter.author}
+    authorTitle={frontmatter.authorTitle}
+    publishedDate={frontmatter.publishedDate}
+    updatedDate={frontmatter.updatedDate}
+  />
+
+  <main>
+    <ResourceContentWrapper 
+      headings={headings}
+      sectionTitle="Why Every Home Service Business Needs a CRM"
+      sectionDescription="Learn why a CRM system is essential for growing your home service business and how it can help you never lose another lead."
+    >
+        {/* Introduction Section */}
+        <ContentSection 
+          sectionData={{
+            title: intro.title,
+            description: intro.description
+          }}
+          variant="default"
+          id="the-chaos-of-no-system"
+        />
+        
+        {/* CRM Basics Section */}
+        <ContentSection 
+          sectionData={{
+            title: crmBasics.title,
+            description: crmBasics.description,
+            image: crmImage,
+            imageAlt: crmBasics.imageAlt
+          }}
+          variant="default"
+          id="what-exactly-is-a-crm"
+        />
+        
+        {/* CRM Transformation Section */}
+        <ContentSection 
+          sectionData={{
+            title: crmTransformation.title,
+            description: crmTransformation.description
+          }}
+          variant="default"
+          id="5-ways-a-crm-transforms"
+        />
+        
+        {/* Solution Section */}
+        <ContentSection 
+          sectionData={{
+            title: solution.title,
+            description: solution.description,
+            buttonText: solution.buttonText,
+            buttonLink: solution.buttonLink
+          }}
+          variant="default"
+          id="localleads247-solution"
+        />
+        
+        {/* Author Bio Section */}
+        <AuthorBio
+          authorData={{
+            title: authorBio.title,
+            description: authorBio.description,
+            image: marcImage,
+            imageAlt: authorBio.imageAlt
+          }}
+          id="about-the-author"
+        />
+    </ResourceContentWrapper>
+  </main>
+</Layout>

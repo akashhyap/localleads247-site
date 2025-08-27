@@ -1,0 +1,250 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import InnerHero from "../../components/InnerHero.astro";
+import Cta from "../../components/Cta.astro";
+import { Image } from "astro:assets";
+
+// Import all resource frontmatter
+import * as aiMarketing from "../content/resources/ai-powered-marketing-tools-explained.md";
+import * as seoVsPpc from "../content/resources/seo-vs-ppc-for-electricians.md";
+import * as crmNeed from "../content/resources/why-every-home-service-business-needs-a-crm.md";
+
+// Import resource images (placeholder)
+import placeholderImage from "../../assets/images/all-in-one.jpg";
+
+// Define our resources collection
+const resources = [
+  {
+    title: "How We Use AI to Automate Your Lead Flow & Grow Your Business",
+    description: "Artificial Intelligence isn't just a buzzword; it's a powerful tool that can save you time, improve your customer service, and close more deals.",
+    category: "Marketing Automation",
+    image: placeholderImage,
+    url: "/resources/ai-powered-marketing-tools-explained/",
+    date: aiMarketing.frontmatter.publishedDate,
+  },
+  {
+    title: "SEO vs. PPC for Electricians: Where to Invest Your Budget",
+    description: "As an electrical contractor, you know every dollar counts. Choosing between SEO and PPC can feel like a gamble. This guide breaks down the pros and cons of each.",
+    category: "Digital Marketing",
+    image: placeholderImage,
+    url: "/resources/seo-vs-ppc-for-electricians/",
+    date: seoVsPpc.frontmatter.publishedDate,
+  },
+  {
+    title: "Why Every Home Service Business Needs a CRM in 2025",
+    description: "If you're still managing your leads with sticky notes, spreadsheets, and your memory, you're leaving thousands of dollars on the table.",
+    category: "Business Operations",
+    image: placeholderImage,
+    url: "/resources/why-every-home-service-business-needs-a-crm/",
+    date: crmNeed.frontmatter.publishedDate,
+  },
+  {
+    title: "Resources Hub Page Wireframe",
+    description: "A sample wireframe layout for resources collection.",
+    category: "Templates",
+    image: placeholderImage,
+    url: "/resources/resources-hub-page-wireframe/",
+    date: "August 6, 2025",
+  },
+];
+---
+
+<Layout title="Resources | LocalLeads247 - Marketing for Home Service Contractors">
+  <InnerHero
+    title="Home Service Marketing <span class='text-accent'>Resources</span>"
+    description="Expert guides, how-tos, and strategy breakdowns to help you grow your home service business. Browse our collection of resources designed specifically for contractors, plumbers, electricians, and other home service providers."
+  />
+
+  <main class="resources-page">
+    <!-- Resources Cards Grid Section -->
+    <section class="resources-grid py-8 md:py-12 lg:py-16">
+      <div class="container mx-auto px-4 md:px-8 max-w-6xl">
+        <h2 class="text-2xl md:text-3xl font-bold mb-6 md:mb-8 text-center">
+          Browse All Resources
+        </h2>
+        
+        <!-- Resource Categories -->
+        <div class="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-4 mb-8 md:mb-12" id="category-filters">
+          <button class="category-filter px-3 py-1.5 md:px-4 md:py-2 rounded-full text-xs sm:text-sm font-medium bg-accent text-white" data-category="all">
+            All Resources
+          </button>
+          <button class="category-filter px-3 py-1.5 md:px-4 md:py-2 rounded-full text-xs sm:text-sm font-medium bg-gray-100 hover:bg-gray-200" data-category="Digital Marketing">
+            Digital Marketing
+          </button>
+          <button class="category-filter px-3 py-1.5 md:px-4 md:py-2 rounded-full text-xs sm:text-sm font-medium bg-gray-100 hover:bg-gray-200" data-category="Business Operations">
+            Business Operations
+          </button>
+          <button class="category-filter px-3 py-1.5 md:px-4 md:py-2 rounded-full text-xs sm:text-sm font-medium bg-gray-100 hover:bg-gray-200" data-category="Marketing Automation">
+            Marketing Automation
+          </button>
+          <button class="category-filter px-3 py-1.5 md:px-4 md:py-2 rounded-full text-xs sm:text-sm font-medium bg-gray-100 hover:bg-gray-200" data-category="Templates">
+            Templates
+          </button>
+        </div>
+
+        <!-- Resources Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="resources-grid">
+          {resources.map((resource) => (
+            <div class="resource-card bg-white rounded-lg shadow-md overflow-hidden" data-category={resource.category}>
+              <div class="resource-image-container">
+                <Image 
+                  src={resource.image} 
+                  alt={resource.title}
+                  width={400}
+                  height={225}
+                  class="w-full h-36 sm:h-40 md:h-48 object-cover"
+                />
+              </div>
+              <div class="p-4 md:p-6">
+                <span class="text-xs font-semibold text-accent uppercase tracking-wider">
+                  {resource.category}
+                </span>
+                <h3 class="text-lg md:text-xl font-bold mt-2 mb-2 md:mb-3 line-clamp-2">
+                  <a href={resource.url} class="hover:text-accent">
+                    {resource.title}
+                  </a>
+                </h3>
+                <p class="text-gray-600 mb-4 line-clamp-3">
+                  {resource.description}
+                </p>
+                <div class="flex items-center justify-between">
+                  <span class="text-sm text-gray-500">{resource.date}</span>
+                  <a href={resource.url} class="text-accent font-medium hover:text-accent/85 inline-flex items-center">
+                    Read More
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <Cta
+      title="Ready to Grow Your Home Service Business?"
+      highlightedText="Get a Free Growth Plan Today"
+      description="Our team will analyze your current marketing and create a custom plan to generate more leads for your business."
+      buttonText="Get My Free Growth Plan"
+      buttonLink="/contact/"
+    />
+  </main>
+</Layout>
+
+<style>
+  @reference "../../styles/global.css";
+
+  .resource-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  .resource-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+
+  .resource-image-container {
+    overflow: hidden;
+  }
+
+  .resource-image-container img {
+    transition: transform 0.3s ease;
+  }
+
+  .resource-card:hover .resource-image-container img {
+    transform: scale(1.05);
+  }
+
+  /* Line clamp utilities */
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Category buttons */
+  .rounded-full {
+    border-radius: 50px;
+  }
+
+  .rounded-full:hover {
+    transform: translateY(-1px);
+  }
+  /* Responsive adjustments */
+  @media (max-width: 640px) {
+    .container {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+    
+    .resource-card {
+      margin-bottom: 1rem;
+    }
+    
+    #category-filters {
+      overflow-x: auto;
+      white-space: nowrap;
+      justify-content: flex-start;
+      padding-bottom: 0.5rem;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none; /* Firefox */
+    }
+    
+    #category-filters::-webkit-scrollbar {
+      display: none; /* Chrome, Safari, Edge */
+    }
+    
+    #category-filters button {
+      flex-shrink: 0;
+    }
+  }
+</style>
+
+<script>
+  // Wait for the DOM to be fully loaded
+  document.addEventListener('DOMContentLoaded', () => {
+    const categoryFilters = document.querySelectorAll('.category-filter');
+    const resourceCards = document.querySelectorAll('.resource-card');
+    
+    // Add click event listener to each filter button
+    categoryFilters.forEach(filter => {
+      filter.addEventListener('click', () => {
+        const selectedCategory = filter.getAttribute('data-category');
+        
+        // Update active button styles
+        categoryFilters.forEach(btn => {
+          btn.classList.remove('bg-accent', 'text-white');
+          btn.classList.add('bg-gray-100');
+        });
+        
+        filter.classList.remove('bg-gray-100');
+        filter.classList.add('bg-accent', 'text-white');
+        
+        // Filter the resource cards
+        resourceCards.forEach(card => {
+          const cardCategory = card.getAttribute('data-category');
+          
+          if (selectedCategory === 'all' || selectedCategory === cardCategory) {
+            card.style.display = '';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  });
+</script>

@@ -1,0 +1,86 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import InnerHero from "../../components/InnerHero.astro";
+import Cta from "../../components/Cta.astro";
+import Services from "../../components/Services.astro";
+import FeatureHighlight from "../../components/FeatureHighlight.astro";
+import Frameworks from "../../components/Frameworks.astro";
+import Blockquote from "../../components/Blockquote.astro";
+
+import allInOne from "../../assets/images/all-in-one.jpg";
+
+// Load page content from MD frontmatter
+import { frontmatter } from "../content/niches/pool-services.md";
+---
+
+<Layout title={frontmatter.title}>
+  <InnerHero
+    title={frontmatter.hero.title}
+    description={frontmatter.hero.description}
+    buttonText={frontmatter.hero.buttonText}
+    buttonLink={frontmatter.hero.buttonLink}
+  />
+
+  <main class="services-page">
+    <FeatureHighlight
+      title={frontmatter.featureHighlight.title}
+      titleHighlight={frontmatter.featureHighlight.titleHighlight}
+      description={frontmatter.featureHighlight.description}
+    />
+
+    <Services
+      badgeText={frontmatter.services.badgeText}
+      title={frontmatter.services.title}
+      highlightedText={frontmatter.services.highlightedText}
+      description={frontmatter.services.description}
+      services={frontmatter.services.services}
+    />
+
+    <Frameworks
+      badgeText={frontmatter.frameworks.badgeText}
+      title={frontmatter.frameworks.title}
+      highlightedText={frontmatter.frameworks.highlightedText}
+      description={frontmatter.frameworks.description}
+      image={allInOne}
+      showNiches={frontmatter.frameworks.showNiches}
+      contentTitle={frontmatter.frameworks.contentTitle}
+      servicesList={frontmatter.frameworks.servicesList}
+    />
+
+    <section class="bg-gray-100">
+      <Blockquote
+        title={frontmatter.blockquote.title}
+        titleHighlight={frontmatter.blockquote.titleHighlight}
+        quote={frontmatter.blockquote.quote}
+        author={frontmatter.blockquote.author}
+        company={frontmatter.blockquote.company}
+        ctaText={frontmatter.blockquote.ctaText}
+        ctaLink={frontmatter.blockquote.ctaLink}
+      />
+    </section>
+
+    <Cta
+      title={frontmatter.cta.title}
+      highlightedText={frontmatter.cta.highlightedText}
+      description={frontmatter.cta.description}
+      buttonText={frontmatter.cta.buttonText}
+      buttonLink={frontmatter.cta.buttonLink}
+    />
+  </main>
+</Layout>
+
+<style>
+  .pillar-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .pillar-card > div {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .pillar-card a {
+    margin-top: auto;
+  }
+</style>

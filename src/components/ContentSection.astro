@@ -1,0 +1,61 @@
+---
+import { Image } from 'astro:assets';
+
+// ContentSection Component for LocalLeads247
+// A reusable component that renders different sections from frontmatter data
+
+interface Props {
+  sectionData: {
+    title?: string;
+    description?: string;
+    buttonText?: string;
+    buttonLink?: string;
+    image?: string; // Path to the image
+    imageAlt?: string;
+    // Add any other properties you might need
+  };
+  variant?: 'default' | 'highlight' | 'feature' | 'centered';
+  bgColor?: string;
+  id?: string; // Add ID for anchor links
+}
+
+const { sectionData, variant = 'default', bgColor = '', id } = Astro.props;
+const { title, description, buttonText, buttonLink, image, imageAlt } = sectionData || {};
+---
+
+<section 
+  id={id}
+  class={`pb-12 ${variant === 'highlight' ? 'bg-gray-50' : ''} ${variant === 'centered' ? 'text-center' : ''}`} 
+  style={bgColor ? `background-color: ${bgColor};` : ''}
+>
+  <div class={` ${variant === 'centered' ? 'max-w-3xl mx-auto' : 'max-w-5xl mx-auto'}`}>
+    <div class={`${variant === 'feature' ? 'lg:flex lg:gap-12 items-center' : ''}`}>
+      <div class={`mb-6 ${variant === 'feature' && image ? 'lg:w-1/2' : 'w-full'}`}>
+        {title && <h2 class="text-3xl md:text-4xl font-semibold leading-tight mb-5" set:html={title}></h2>}
+        
+        {description && <div class="prose prose-lg max-w-none prose-headings:text-primary prose-headings:font-semibold prose-h2:text-2xl md:prose-h2:text-3xl prose-h2:mt-6 prose-h2:mb-4 prose-h3:text-xl prose-h3:mt-6 prose-h3:mb-3 prose-p:mb-5 prose-strong:font-semibold prose-strong:text-accent prose-a:text-accent prose-a:underline prose-a:underline-offset-2 hover:prose-a:underline-offset-4 prose-li:mb-2 text-lg text-gray-600 leading-relaxed mb-6" set:html={description}></div>}
+        
+        <slot />
+        
+        {(buttonText && buttonLink) && 
+          <div class="mt-6">
+            <a href={buttonLink} class="inline-block px-7 py-3.5 bg-primary text-accent border border-primary rounded-full font-semibold hover:bg-transparent hover:text-primary transition-colors duration-300">{buttonText}</a>
+          </div>
+        }
+      </div>
+      
+      {image && 
+        <div class={`mt-8 ${variant === 'feature' ? 'lg:mt-0 lg:w-1/2' : 'w-full'}`}>
+          <Image
+            src={image}
+            alt={imageAlt || ""}
+            width={800}
+            height={600}
+            class="rounded-3xl w-auto h-auto max-w-full object-cover aspect-auto shadow-md"
+          />
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
