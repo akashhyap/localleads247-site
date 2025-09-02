@@ -35,20 +35,47 @@ import logoImage from '../assets/images/local-leads-247-logo.svg';
                             <li role="none"><a href="/services/social-media-reputation-management/" role="menuitem">Social Media & Reputation</a></li>
                         </ul>
                     </li>
-                    <li role="none" class="has-dropdown">
+                    <li role="none" class="has-dropdown has-mega">
                         <a href="/" role="menuitem" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle">Niches
                         <span class="dropdown-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
                        </a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li role="none"><a href="/niches/plumber/" role="menuitem">Plumber</a></li>
-                            <li role="none"><a href="/niches/hvac/" role="menuitem">HVAC</a></li>
-                            <li role="none"><a href="/niches/electricians/" role="menuitem">Electrician</a></li>
-                            <li role="none"><a href="/niches/landscapers/" role="menuitem">Landscaper</a></li>
-                            <li role="none"><a href="/niches/roofers/" role="menuitem">Roofer</a></li>
-                            <li role="none"><a href="/niches/painting-contractors/" role="menuitem">Painting Contractors</a></li>
-                            <li role="none"><a href="/niches/flooring-contractors/" role="menuitem">Flooring Contractors</a></li>
-                            <li role="none"><a href="/niches/drywall-painting-contractors/" role="menuitem">Drywall & Painting</a></li>
-                        </ul>
+                        <div class="mega-menu" role="menu">
+                            <div class="mega-menu-column">
+                                <ul>
+                                    <li role="none"><a href="/niches/plumber/" role="menuitem">Plumber</a></li>
+                                    <li role="none"><a href="/niches/hvac/" role="menuitem">HVAC</a></li>
+                                    <li role="none"><a href="/niches/electricians/" role="menuitem">Electrician</a></li>
+                                    <li role="none"><a href="/niches/landscapers/" role="menuitem">Landscaper</a></li>
+                                    <li role="none"><a href="/niches/roofers/" role="menuitem">Roofer</a></li>
+                                </ul>
+                            </div>
+                            <div class="mega-menu-column">
+                                <ul>
+                                    <li role="none"><a href="/niches/painting-contractors/" role="menuitem">Painting Contractors</a></li>
+                                    <li role="none"><a href="/niches/flooring-contractors/" role="menuitem">Flooring Contractors</a></li>
+                                    <li role="none"><a href="/niches/drywall-painting-contractors/" role="menuitem">Drywall & Painting</a></li>
+                                    <li role="none"><a href="/niches/garage-door-repair/" role="menuitem">Garage Door Repair</a></li>
+                                    <li role="none"><a href="/niches/general-contractors/" role="menuitem">General Contractors</a></li>
+                                </ul>
+                            </div>
+                            <div class="mega-menu-column">
+                                <ul>
+                                    <li role="none"><a href="/niches/handy-services/" role="menuitem">Handy Services</a></li>
+                                    <li role="none"><a href="/niches/home-security/" role="menuitem">Home Security</a></li>
+                                    <li role="none"><a href="/niches/house-cleaning/" role="menuitem">House Cleaning</a></li>
+                                    <li role="none"><a href="/niches/kitchen-bath-remodeling/" role="menuitem">Kitchen & Bath</a></li>
+                                    <li role="none"><a href="/niches/pavers-masonry/" role="menuitem">Pavers & Masonry</a></li>
+                                </ul>
+                            </div>
+                            <div class="mega-menu-column">
+                                <ul>
+                                    <li role="none"><a href="/niches/pest-control/" role="menuitem">Pest Control</a></li>
+                                    <li role="none"><a href="/niches/pool-cleaning/" role="menuitem">Pool Cleaning</a></li>
+                                    <li role="none"><a href="/niches/pool-remodeling/" role="menuitem">Pool Remodeling</a></li>
+                                    <li role="none"><a href="/niches/pool-services/" role="menuitem">Pool Services</a></li>
+                                </ul>
+                            </div>
+                        </div>
                     </li>
                     <li role="none"><a href="/about-us/" role="menuitem">About</a></li>
                     <li role="none"><a href="/case-studies/" role="menuitem">Case Studies</a></li>
@@ -144,7 +171,9 @@ import logoImage from '../assets/images/local-leads-247-logo.svg';
     
     .dropdown-toggle {
         position: relative;
-        padding-right: 16px; /* Space for the dropdown icon */
+        padding-right: 22px; /* Space for the dropdown icon */
+        display: flex;
+        align-items: center;
     }
     
     .dropdown-toggle .dropdown-icon {
@@ -154,7 +183,7 @@ import logoImage from '../assets/images/local-leads-247-logo.svg';
         justify-content: center;
         width: 16px;
         height: 16px;
-        right: -5px;
+        right: 0;
         top: 50%;
         transform: translateY(-50%);
         transition: transform 0.3s ease;
@@ -164,6 +193,7 @@ import logoImage from '../assets/images/local-leads-247-logo.svg';
         transform: translateY(-50%) rotate(180deg);
     }
     
+    /* Standard Dropdown Menu Styles */
     .dropdown-menu {
         display:flex;
         flex-direction:column;
@@ -175,8 +205,9 @@ import logoImage from '../assets/images/local-leads-247-logo.svg';
         background-color: white;
         border-radius: 4px;
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        border-top: 1px solid var(--color-accent);
         padding: 20px 0 10px 0; /* Top padding creates hover bridge */
-        margin-top: -6px; /* Negative margin to position properly */
+        margin-top: 0px; /* Negative margin to position properly */
         opacity: 0;
         visibility: hidden;
         transform: translateY(-6px);
@@ -211,6 +242,69 @@ import logoImage from '../assets/images/local-leads-247-logo.svg';
     /* Remove underline effect for dropdown items to avoid conflict */
     .dropdown-menu a:hover::after {
         display: none;
+    }
+    
+    /* Mega Menu Styles */
+    .mega-menu {
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-6px);
+        display: flex;
+        flex-wrap: nowrap;
+        width: 800px;
+        max-width: 90vw;
+        background-color: white;
+        border-radius: 4px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        padding: 20px 20px 10px;
+        border-top: 1px solid var(--color-accent);
+        margin-top: 0px;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+        z-index: 100;
+    }
+    
+    .has-dropdown.has-mega:hover .mega-menu,
+    .has-dropdown.has-mega.active .mega-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(-50%) translateY(0);
+    }
+    
+    .mega-menu-column {
+        flex: 1;
+        padding: 0 10px;
+        min-width: 0; /* Allows columns to shrink below content size */
+    }
+    
+    .mega-menu-column ul {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+    
+    .mega-menu-column li {
+        display: block;
+        width: 100%;
+        padding: 0;
+    }
+    
+    .mega-menu-column a {
+        display: block;
+        padding: 8px 10px;
+        font-size: 16px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    
+    .mega-menu-column a:hover {
+        background-color: #f5f5f5;
     }
 
     .header-cta {
@@ -312,29 +406,121 @@ import logoImage from '../assets/images/local-leads-247-logo.svg';
         }
 
         .main-nav a {
-            font-size: 18px;
             display: block;
-            padding: 10px 0;
+            width: 100%;
+            padding: 0;
         }
         
-        /* Mobile dropdown styles - override desktop styles */
         .dropdown-menu {
-            position: static;
-            box-shadow: none;
-            opacity: 0;
-            max-height: 0;
+            display: none;
             padding: 0;
-            margin: 0 0 0 15px;
+            margin: 0;
+            flex-direction: column;
+            width: 100% !important;
+            background: #f9f9f9;
+            box-shadow: none;
+            position: static !important;
+            left: 0 !important;
+            transform: none !important;
+            opacity: 0;
+            visibility: hidden;
+            height: 0;
             overflow: hidden;
-            transform: none;
-            visibility: visible;
-            transition: all 0.3s ease;
+            transition: opacity 0.3s ease, visibility 0.3s ease, height 0.3s ease;
         }
         
         .dropdown-menu.active {
+            display: block;
             opacity: 1;
-            max-height: 200px; /* Large enough to contain all items */
-            padding: 5px 0;
+            visibility: visible;
+            height: auto;
+            padding: 5px;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+        
+        .dropdown-menu a {
+            display: block;
+            padding: 8px 0;
+            font-size: 16px;
+            white-space: nowrap;
+            overflow-y: auto;
+        }
+        
+        .mega-menu {
+            display: none;
+            padding: 0;
+            margin: 0;
+            border-left: none;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            width: 100% !important;
+            background: #f9f9f9;
+            box-shadow: none;
+            position: static !important;
+            left: 0 !important;
+            transform: none !important;
+            opacity: 0;
+            visibility: hidden;
+            height: 0;
+            overflow: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease, height 0.3s ease;
+        }
+        
+        .mega-menu.active {
+            display: block;
+            opacity: 1;
+            visibility: visible;
+            height: auto;
+            padding: 5px;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+        
+        .mega-menu-column {
+            width: 100%;
+            padding: 0;
+            margin: 0 0 10px 0;
+            box-sizing: border-box;
+        }
+        
+        .mega-menu-column ul {
+            display: flex;
+            flex-direction: column;
+            padding: 0;
+            margin: 0;
+            list-style-type: none;
+        }
+        
+        .mega-menu-column:not(:last-child) {
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .mega-menu-column a {
+            font-size: 15px;
+            padding: 10px;
+            display: block;
+            white-space: normal;
+            color: #333;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+        
+        .mega-menu-column a:hover {
+            background-color: rgba(0,0,0,0.05);
+        }
+        
+        /* Improve visibility of menu items */
+        .mega-menu-column li {
+            margin-bottom: 2px;
+            width: 100%;
+            display: block;
         }
         
         .dropdown-menu a {
@@ -355,10 +541,20 @@ import logoImage from '../assets/images/local-leads-247-logo.svg';
             transform: none;
             transition: transform 0.3s ease;
             vertical-align: middle;
+            z-index: 2;
         }
         
         .has-dropdown.active > a .dropdown-icon {
             transform: rotate(180deg);
+        }
+        
+        /* Ensure dropdown icons are always visible */
+        .dropdown-icon svg {
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
         }
 
         .header-cta {
@@ -395,6 +591,7 @@ import logoImage from '../assets/images/local-leads-247-logo.svg';
         const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
         let lastScrollY = window.scrollY;
         let ticking = false;
+        let activeDropdown: HTMLElement | null = null; // Track the currently active dropdown
         
         // Mobile menu functionality
         if (mobileToggle && mainNav) {
@@ -415,6 +612,17 @@ import logoImage from '../assets/images/local-leads-247-logo.svg';
                 if (mainNav.classList.contains('active') && 
                     !mainNav.contains(e.target) && 
                     !mobileToggle.contains(e.target)) {
+                    // Close all open dropdowns first
+                    document.querySelectorAll('.dropdown-menu.active, .mega-menu.active').forEach(menu => {
+                        menu.classList.remove('active');
+                    });
+                    document.querySelectorAll('.has-dropdown.active').forEach(item => {
+                        item.classList.remove('active');
+                        const toggle = item.querySelector('.dropdown-toggle');
+                        if (toggle) toggle.setAttribute('aria-expanded', 'false');
+                    });
+                    
+                    // Then close the main menu
                     mainNav.classList.remove('active');
                     mobileToggle.classList.remove('active');
                     mobileToggle.setAttribute('aria-expanded', 'false');
@@ -433,50 +641,138 @@ import logoImage from '../assets/images/local-leads-247-logo.svg';
         // Dropdown menu functionality
         if (dropdownToggles.length > 0) {
             dropdownToggles.forEach(toggle => {
-                toggle.addEventListener('click', (e) => {
+                toggle.addEventListener('click', function(this: HTMLElement, e: Event) {
                     // Only handle dropdown toggles on mobile
                     if (window.innerWidth <= 992) {
                         e.preventDefault();
-                        const parent = toggle.closest('.has-dropdown');
-                        const dropdown = parent.querySelector('.dropdown-menu');
+                        e.stopPropagation(); // Prevent event bubbling
                         
-                        // Toggle the active class for the parent and dropdown
-                        parent.classList.toggle('active');
-                        dropdown.classList.toggle('active');
+                        const parent = this.closest('.has-dropdown') as HTMLElement;
+                        if (!parent) return; // Safety check
                         
-                        // Update aria-expanded attribute
-                        const isExpanded = parent.classList.contains('active');
-                        toggle.setAttribute('aria-expanded', isExpanded);
+                        // First check if this is the currently active dropdown
+                        if (activeDropdown === parent) {
+                            // If it's already active, close it
+                            parent.classList.remove('active');
+                            this.setAttribute('aria-expanded', 'false');
+                            
+                            const dropdownMenu = parent.querySelector('.dropdown-menu') || parent.querySelector('.mega-menu');
+                            if (dropdownMenu) {
+                                dropdownMenu.classList.remove('active');
+                            }
+                            
+                            // Reset our tracking variable
+                            activeDropdown = null;
+                            return;
+                        }
+                        
+                        // Close any currently open dropdown
+                        if (activeDropdown) {
+                            activeDropdown.classList.remove('active');
+                            const activeToggle = activeDropdown.querySelector('.dropdown-toggle');
+                            if (activeToggle) {
+                                activeToggle.setAttribute('aria-expanded', 'false');
+                            }
+                            const activeMenu = activeDropdown.querySelector('.dropdown-menu') || activeDropdown.querySelector('.mega-menu');
+                            if (activeMenu) {
+                                activeMenu.classList.remove('active');
+                            }
+                        }
+                        
+                        // Open the clicked dropdown
+                        parent.classList.add('active');
+                        this.setAttribute('aria-expanded', 'true');
+                        
+                        const dropdown = parent.querySelector('.dropdown-menu') || parent.querySelector('.mega-menu');
+                        if (dropdown) {
+                            dropdown.classList.add('active');
+                            
+                            // Force redraw for visibility
+                            const htmlDropdown = dropdown as HTMLElement;
+                            if (htmlDropdown) {
+                                htmlDropdown.style.display = 'none';
+                                void htmlDropdown.offsetHeight; // Trigger reflow
+                                htmlDropdown.style.display = '';
+                            }
+                            
+                            // Handle mega menus that might overflow viewport
+                            if (parent.classList.contains('has-mega')) {
+                                setTimeout(() => {
+                                    const menuHeight = dropdown.scrollHeight;
+                                    const windowHeight = window.innerHeight;
+                                    const menuTop = dropdown.getBoundingClientRect().top;
+                                    
+                                    if (menuHeight + menuTop > windowHeight) {
+                                        const htmlDropdown = dropdown as HTMLElement;
+                                        htmlDropdown.style.maxHeight = (windowHeight - menuTop - 40) + 'px';
+                                    }
+                                    
+                                    // Make columns visible
+                                    const columns = dropdown.querySelectorAll('.mega-menu-column');
+                                    columns.forEach((col: Element) => {
+                                        (col as HTMLElement).style.display = 'block';
+                                        (col as HTMLElement).style.width = '100%';
+                                    });
+                                }, 10);
+                            }
+                        }
+                        
+                        // Update our tracking variable
+                        activeDropdown = parent;
                     }
                 });
             });
         }
         
         // Handle dropdown arrow keys for accessibility
-        const handleKeyboardNavigation = (e) => {
-            const item = e.target.closest('.has-dropdown');
+        const handleKeyboardNavigation = (e: KeyboardEvent) => {
+            const target = e.target as HTMLElement;
+            const item = target?.closest('.has-dropdown') as HTMLElement;
             if (!item) return;
             
-            const dropdown = item.querySelector('.dropdown-menu');
-            const toggle = item.querySelector('.dropdown-toggle');
+            const dropdown = item.querySelector('.dropdown-menu') || item.querySelector('.mega-menu');
+            const toggle = item.querySelector('.dropdown-toggle') as HTMLElement;
             const items = dropdown ? dropdown.querySelectorAll('a') : [];
             
             if (e.key === 'Escape') {
                 // Close dropdown and return focus to toggle
                 toggle.setAttribute('aria-expanded', 'false');
                 item.classList.remove('active');
-                dropdown.classList.remove('active');
+                dropdown?.classList.remove('active');
                 toggle.focus();
+                activeDropdown = null;
             } else if (e.key === 'ArrowDown' && toggle.getAttribute('aria-expanded') === 'true') {
                 // Navigate down to first item
                 e.preventDefault();
-                if (items.length > 0) items[0].focus();
+                if (items.length > 0) (items[0] as HTMLElement).focus();
             } else if (e.key === 'ArrowUp' && toggle.getAttribute('aria-expanded') === 'true') {
                 // Navigate to last item
                 e.preventDefault();
-                if (items.length > 0) items[items.length - 1].focus();
+                if (items.length > 0) (items[items.length - 1] as HTMLElement).focus();
             }
         };
+        
+        // Close dropdowns when clicking outside
+        document.addEventListener('click', function(this: Document, e: MouseEvent) {
+            // Get target as HTMLElement and check if clicking inside dropdown
+            const target = e.target as HTMLElement;
+            // Don't close if we're clicking inside a dropdown
+            if (!target || target.closest('.has-dropdown')) return;
+            
+            // Close any open dropdown
+            if (activeDropdown) {
+                activeDropdown.classList.remove('active');
+                const activeToggle = activeDropdown.querySelector('.dropdown-toggle');
+                if (activeToggle) {
+                    activeToggle.setAttribute('aria-expanded', 'false');
+                }
+                const activeMenu = activeDropdown.querySelector('.dropdown-menu') || activeDropdown.querySelector('.mega-menu');
+                if (activeMenu) {
+                    activeMenu.classList.remove('active');
+                }
+                activeDropdown = null;
+            }
+        });
         
         // Add keyboard event listeners
         document.addEventListener('keydown', handleKeyboardNavigation);

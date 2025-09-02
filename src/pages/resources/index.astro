@@ -8,12 +8,30 @@ import { Image } from "astro:assets";
 import * as aiMarketing from "../content/resources/ai-powered-marketing-tools-explained.md";
 import * as seoVsPpc from "../content/resources/seo-vs-ppc-for-electricians.md";
 import * as crmNeed from "../content/resources/why-every-home-service-business-needs-a-crm.md";
+import * as handymanContent from "../content/resources/content-marketing-ideas-for-handyman-services.md";
+import * as fbVsGoogleAds from "../content/resources/facebook-vs-google-ads-for-landscapers.md";
 
 // Import resource images (placeholder)
 import placeholderImage from "../../assets/images/all-in-one.jpg";
 
 // Define our resources collection
 const resources = [
+  {
+    title: "Facebook Ads vs. Google Ads for Landscapers: Which is Better?",
+    description: "As a Las Vegas landscaper, you need to attract the right kind of clients. But should you spend your ad budget on Google or Facebook? The answer depends entirely on your goals.",
+    category: "Digital Marketing",
+    image: placeholderImage,
+    url: "/resources/facebook-vs-google-ads-for-landscapers/",
+    date: fbVsGoogleAds.frontmatter.publishedDate,
+  },
+  {
+    title: "7 Content Marketing Ideas to Get More Handyman Jobs",
+    description: "As a handyman, you can do it all. But marketing a wide range of skills can be tough. Here are 7 proven content ideas to build trust, attract more clients, and keep your schedule full.",
+    category: "Content Marketing",
+    image: placeholderImage,
+    url: "/resources/content-marketing-ideas-for-handyman-services/",
+    date: handymanContent.frontmatter.publishedDate,
+  },
   {
     title: "How We Use AI to Automate Your Lead Flow & Grow Your Business",
     description: "Artificial Intelligence isn't just a buzzword; it's a powerful tool that can save you time, improve your customer service, and close more deals.",
@@ -76,6 +94,9 @@ const resources = [
           </button>
           <button class="category-filter px-3 py-1.5 md:px-4 md:py-2 rounded-full text-xs sm:text-sm font-medium bg-gray-100 hover:bg-gray-200" data-category="Marketing Automation">
             Marketing Automation
+          </button>
+          <button class="category-filter px-3 py-1.5 md:px-4 md:py-2 rounded-full text-xs sm:text-sm font-medium bg-gray-100 hover:bg-gray-200" data-category="Content Marketing">
+            Content Marketing
           </button>
           <button class="category-filter px-3 py-1.5 md:px-4 md:py-2 rounded-full text-xs sm:text-sm font-medium bg-gray-100 hover:bg-gray-200" data-category="Templates">
             Templates
