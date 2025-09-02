@@ -1,103 +1,259 @@
 ---
-import { Image } from 'astro:assets';
-import logoImage from '../assets/images/local-leads-247-logo.svg';
+import { Image } from "astro:assets";
+import logoImage from "../assets/images/local-leads-247-logo.svg";
 ---
+
 <footer class="py-16 border-t border-gray-200">
-    <div class="container max-w-7xl mx-auto px-4 sm:px-6 xl:px-0">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12 mb-12">
-            <!-- 1st column - Agency Info -->
-            <div class="lg:col-span-5">
-                <div class="mb-4">
-                    <a href="/" class="logo" aria-label="LocalLeads247 Home">
-                        <Image src={logoImage} alt="LocalLeads247 Logo" width={250} height={50} loading="eager" />
-                    </a>
-                </div>
-                        </div>
-
-            <!-- 2nd column - Core Services -->
-            <div class="lg:col-span-3">
-                <h3 class="font-medium text-lg text-dark mb-4">Core Services</h3>
-                <ul class="space-y-2">
-                    <li><a href="/services/semantic-seo/" class="text-gray-600 hover:text-primary transition-colors">Semantic SEO</a></li>
-                    <li><a href="/services/business-os/" class="text-gray-600 hover:text-primary transition-colors">Business OS Platform</a></li>
-                    <li><a href="/services/ppc-management/" class="text-gray-600 hover:text-primary transition-colors">PPC Management</a></li>
-                    <li><a href="/services/web-design/" class="text-gray-600 hover:text-primary transition-colors">Website Design</a></li>
-                </ul>
-            </div>
-
-            <!-- 3rd column - Company -->
-            <div class="lg:col-span-2">
-                <h3 class="font-medium text-lg text-dark mb-4">Company</h3>
-                <ul class="space-y-2">
-                    <li><a href="/about-us/" class="text-gray-600 hover:text-primary transition-colors">About Us</a></li>
-                    <li><a href="/case-studies/" class="text-gray-600 hover:text-primary transition-colors">Case Studies</a></li>
-                    <li><a href="/contact/" class="text-gray-600 hover:text-primary transition-colors">Contact Us</a></li>
-                    <li><a href="/resources/" class="text-gray-600 hover:text-primary transition-colors">Resources</a></li>
-                </ul>
-            </div>
-
-            <!-- 4th column - Legal -->
-            <div class="lg:col-span-2">
-                <h3 class="font-medium text-lg text-dark mb-4">Legal</h3>
-                <ul class="space-y-2">
-                    <li><a href="/terms-and-conditions/" class="text-gray-600 hover:text-primary transition-colors">Terms & Conditions</a></li>
-                    <li><a href="/privacy-policy/" class="text-gray-600 hover:text-primary transition-colors">Privacy Policy</a></li>
-                </ul>
-            </div>
+  <div class="container max-w-7xl mx-auto px-4 sm:px-6 xl:px-0">
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12 mb-12"
+    >
+      <!-- 1st column - Agency Info -->
+      <div class="lg:col-span-5">
+        <div class="mb-4">
+          <a href="/" class="logo" aria-label="LocalLeads247 Home">
+            <Image
+              src={logoImage}
+              alt="LocalLeads247 Logo"
+              width={250}
+              height={50}
+              loading="eager"
+            />
+          </a>
         </div>
+      </div>
 
-        <!-- Niches row -->
-        <div class="mb-12">
-            <h3 class="font-medium text-lg text-dark mb-6">Niches</h3>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Column 1 -->
-                <div>
-                    <ul class="space-y-2">
-                        <li><a href="/niches/hvac/" class="text-gray-600 hover:text-primary transition-colors">HVAC</a></li>
-                        <li><a href="/niches/plumber/" class="text-gray-600 hover:text-primary transition-colors">Plumber</a></li>
-                        <li><a href="/niches/electricians/" class="text-gray-600 hover:text-primary transition-colors">Electricians</a></li>
-                        <li><a href="/niches/roofers/" class="text-gray-600 hover:text-primary transition-colors">Roofers</a></li>
-                        <li><a href="/niches/landscapers/" class="text-gray-600 hover:text-primary transition-colors">Landscapers</a></li>
-                    </ul>
-                </div>
-                
-                <!-- Column 2 -->
-                <div>
-                    <ul class="space-y-2">
-                        <li><a href="/niches/pool-services/" class="text-gray-600 hover:text-primary transition-colors">Pool Services</a></li>
-                        <li><a href="/niches/pool-cleaning/" class="text-gray-600 hover:text-primary transition-colors">Pool Cleaning</a></li>
-                        <li><a href="/niches/pool-remodeling/" class="text-gray-600 hover:text-primary transition-colors">Pool Remodeling</a></li>
-                        <li><a href="/niches/pest-control/" class="text-gray-600 hover:text-primary transition-colors">Pest Control</a></li>
-                        <li><a href="/niches/house-cleaning/" class="text-gray-600 hover:text-primary transition-colors">House Cleaning</a></li>
-                    </ul>
-                </div>
-                
-                <!-- Column 3 -->
-                <div>
-                    <ul class="space-y-2">
-                        <li><a href="/niches/general-contractors/" class="text-gray-600 hover:text-primary transition-colors">General Contractors</a></li>
-                        <li><a href="/niches/kitchen-bath-remodeling/" class="text-gray-600 hover:text-primary transition-colors">Kitchen & Bath Remodeling</a></li>
-                        <li><a href="/niches/flooring-contractors/" class="text-gray-600 hover:text-primary transition-colors">Flooring Contractors</a></li>
-                        <li><a href="/niches/painting-contractors/" class="text-gray-600 hover:text-primary transition-colors">Painting Contractors</a></li>
-                        <li><a href="/niches/drywall-painting-contractors/" class="text-gray-600 hover:text-primary transition-colors">Drywall & Painting</a></li>
-                    </ul>
-                </div>
-                
-                <!-- Column 4 -->
-                <div>
-                    <ul class="space-y-2">
-                        <li><a href="/niches/garage-door-repair/" class="text-gray-600 hover:text-primary transition-colors">Garage Door Repair</a></li>
-                        <li><a href="/niches/home-security/" class="text-gray-600 hover:text-primary transition-colors">Home Security</a></li>
-                        <li><a href="/niches/handy-services/" class="text-gray-600 hover:text-primary transition-colors">Handy Services</a></li>
-                        <li><a href="/niches/pavers-masonry/" class="text-gray-600 hover:text-primary transition-colors">Pavers & Masonry</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+      <!-- 2nd column - Core Services -->
+      <div class="lg:col-span-3">
+        <h3 class="font-medium text-lg text-dark mb-4">Core Services</h3>
+        <ul class="space-y-2">
+          <li>
+            <a
+              href="/services/semantic-seo/"
+              class="text-gray-600 hover:text-primary transition-colors"
+              >Semantic SEO</a>
+          </li>
+          <li>
+            <a
+              href="/services/business-os/"
+              class="text-gray-600 hover:text-primary transition-colors"
+              >Business OS Platform</a>
+          </li>
+          <li>
+            <a
+              href="/services/ppc-management/"
+              class="text-gray-600 hover:text-primary transition-colors"
+              >PPC Management</a>
+          </li>
+          <li>
+            <a
+              href="/services/web-design/"
+              class="text-gray-600 hover:text-primary transition-colors"
+              >Website Design</a>
+          </li>
+        </ul>
+      </div>
 
-        <!-- Copyright row -->
-        <div class="pt-8 border-t border-gray-200 text-center sm:text-left">
-            <p class="text-gray-500 text-sm">&copy; 2024 LocalLeads247. All Rights Reserved. | Las Vegas, NV</p>
-        </div>
+      <!-- 3rd column - Company -->
+      <div class="lg:col-span-2">
+        <h3 class="font-medium text-lg text-dark mb-4">Company</h3>
+        <ul class="space-y-2">
+          <li>
+            <a
+              href="/about-us/"
+              class="text-gray-600 hover:text-primary transition-colors"
+              >About Us</a>
+          </li>
+          <li>
+            <a
+              href="/case-studies/"
+              class="text-gray-600 hover:text-primary transition-colors"
+              >Case Studies</a>
+          </li>
+          <li>
+            <a
+              href="/contact/"
+              class="text-gray-600 hover:text-primary transition-colors"
+              >Contact Us</a>
+          </li>
+          <li>
+            <a
+              href="/resources/"
+              class="text-gray-600 hover:text-primary transition-colors"
+              >Resources</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- 4th column - Legal -->
+      <div class="lg:col-span-2">
+        <h3 class="font-medium text-lg text-dark mb-4">Legal</h3>
+        <ul class="space-y-2">
+          <li>
+            <a
+              href="/terms-and-conditions/"
+              class="text-gray-600 hover:text-primary transition-colors"
+              >Terms & Conditions</a>
+          </li>
+          <li>
+            <a
+              href="/privacy-policy/"
+              class="text-gray-600 hover:text-primary transition-colors"
+              >Privacy Policy</a>
+          </li>
+        </ul>
+      </div>
     </div>
+
+    <!-- Niches row -->
+    <div class="mb-12">
+      <h3 class="font-medium text-lg text-dark mb-6">Niches</h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Column 1 -->
+        <div>
+          <ul class="space-y-2">
+            <li>
+              <a
+                href="/niches/hvac/"
+                class="text-gray-600 hover:text-primary transition-colors"
+                >HVAC</a>
+            </li>
+            <li>
+              <a
+                href="/niches/plumber/"
+                class="text-gray-600 hover:text-primary transition-colors"
+                >Plumber</a>
+            </li>
+            <li>
+              <a
+                href="/niches/electricians/"
+                class="text-gray-600 hover:text-primary transition-colors"
+                >Electricians</a>
+            </li>
+            <li>
+              <a
+                href="/niches/roofers/"
+                class="text-gray-600 hover:text-primary transition-colors"
+                >Roofers</a>
+            </li>
+            <li>
+              <a
+                href="/niches/landscapers/"
+                class="text-gray-600 hover:text-primary transition-colors"
+                >Landscapers</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Column 2 -->
+        <div>
+          <ul class="space-y-2">
+            <li>
+              <a
+                href="/niches/pool-services/"
+                class="text-gray-600 hover:text-primary transition-colors"
+                >Pool Services</a>
+            </li>
+            <li>
+              <a
+                href="/niches/pool-cleaning/"
+                class="text-gray-600 hover:text-primary transition-colors"
+                >Pool Cleaning</a>
+            </li>
+            <li>
+              <a
+                href="/niches/pool-remodeling/"
+                class="text-gray-600 hover:text-primary transition-colors"
+                >Pool Remodeling</a>
+            </li>
+            <li>
+              <a
+                href="/niches/pest-control/"
+                class="text-gray-600 hover:text-primary transition-colors"
+                >Pest Control</a>
+            </li>
+            <li>
+              <a
+                href="/niches/house-cleaning/"
+                class="text-gray-600 hover:text-primary transition-colors"
+                >House Cleaning</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Column 3 -->
+        <div>
+          <ul class="space-y-2">
+            <li>
+              <a
+                href="/niches/general-contractors/"
+                class="text-gray-600 hover:text-primary transition-colors"
+                >General Contractors</a>
+            </li>
+            <li>
+              <a
+                href="/niches/kitchen-bath-remodeling/"
+                class="text-gray-600 hover:text-primary transition-colors"
+                >Kitchen & Bath Remodeling</a>
+            </li>
+            <li>
+              <a
+                href="/niches/flooring-contractors/"
+                class="text-gray-600 hover:text-primary transition-colors"
+                >Flooring Contractors</a>
+            </li>
+            <li>
+              <a
+                href="/niches/painting-contractors/"
+                class="text-gray-600 hover:text-primary transition-colors"
+                >Painting Contractors</a>
+            </li>
+            <li>
+              <a
+                href="/niches/drywall-painting-contractors/"
+                class="text-gray-600 hover:text-primary transition-colors"
+                >Drywall & Painting</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Column 4 -->
+        <div>
+          <ul class="space-y-2">
+            <li>
+              <a
+                href="/niches/garage-door-repair/"
+                class="text-gray-600 hover:text-primary transition-colors"
+                >Garage Door Repair</a>
+            </li>
+            <li>
+              <a
+                href="/niches/home-security/"
+                class="text-gray-600 hover:text-primary transition-colors"
+                >Home Security</a>
+            </li>
+            <li>
+              <a
+                href="/niches/handy-services/"
+                class="text-gray-600 hover:text-primary transition-colors"
+                >Handy Services</a>
+            </li>
+            <li>
+              <a
+                href="/niches/pavers-masonry/"
+                class="text-gray-600 hover:text-primary transition-colors"
+                >Pavers & Masonry</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Copyright row -->
+    <div class="pt-8 border-t border-gray-200 text-center sm:text-left">
+      <p class="text-gray-500 text-sm">
+        &copy; 2024 LocalLeads247. All Rights Reserved. | Las Vegas, NV
+      </p>
+    </div>
+  </div>
 </footer>
