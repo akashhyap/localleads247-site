@@ -25,7 +25,7 @@ howToVideos:
 
 googleProfile:
   title: "3. Optimize Your Google Business Profile (GBP)"
-  description: "Your GBP is your most important local marketing asset. It's not just a listing; it's a content platform. Regularly upload photos of your work, post weekly updates about services you're offering, and actively encourage and respond to customer reviews. This is a core part of modern local SEO.<br><br><img src='/placeholder-gbp-image.jpg' alt='A screenshot of a well-optimized Google Business Profile for a handyman, showing recent posts and photos.'>"
+  description: "Your GBP is your most important local marketing asset. It's not just a listing; it's a content platform. Regularly upload photos of your work, post weekly updates about services you're offering, and actively encourage and respond to customer reviews. This is a core part of modern local SEO"
   imageAlt: "A screenshot of a well-optimized Google Business Profile for a handyman, showing recent posts and photos."
 
 servicesPage:

@@ -49,9 +49,11 @@ const { title, description, buttonText, buttonLink, image, imageAlt } = sectionD
           <Image
             src={image}
             alt={imageAlt || ""}
-            width={800}
-            height={600}
-            class="rounded-3xl w-auto h-auto max-w-full object-cover aspect-auto shadow-md"
+            width={1024}
+            height={1024}
+            quality={90}
+            format="webp"
+            class="rounded-3xl w-full h-auto object-contain shadow-md"
           />
         </div>
       }
